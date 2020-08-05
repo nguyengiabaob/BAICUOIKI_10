@@ -13,8 +13,14 @@ namespace Baicuoiki
 {
     public partial class Formdanhsachsinhvien : Form
     {
+        TabControl c = null;
         public Formdanhsachsinhvien()
         {
+            InitializeComponent();
+        }
+        public Formdanhsachsinhvien(TabControl t)
+        {
+            c = t;
             InitializeComponent();
         }
         Bangnhanvien tbnhanvien = new Bangnhanvien();
@@ -159,7 +165,7 @@ namespace Baicuoiki
 
         private void simpleButton1_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            c.TabPages.RemoveByKey("pagedanhsachnhanvien");
         }
     }
 }

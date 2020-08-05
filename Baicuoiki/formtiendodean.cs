@@ -13,6 +13,8 @@ namespace Baicuoiki
 {
     public partial class formtiendodean : Form
     {
+        TabControl c = null;
+        
         public formtiendodean()
         {
             InitializeComponent();
@@ -24,6 +26,11 @@ namespace Baicuoiki
         Bangnhanvien tbnhanvien = new Bangnhanvien();
         tiendodean tiendodean = new tiendodean();
         DataSet ds = new DataSet();
+        public formtiendodean(TabControl t)
+        {
+            c = t;
+            InitializeComponent();
+        }
         private void addcot1()
         {
 
@@ -88,6 +95,7 @@ namespace Baicuoiki
             dateTimePicker1.Value = DateTime.Now;
             dataGridViewtiendodean.AutoGenerateColumns = false;
             dataGridViewtiendodean.DataSource = tiendodean;
+            loadcbchedoloc();
             btiendodean = this.BindingContext[tiendodean];
         }
 
@@ -113,10 +121,50 @@ namespace Baicuoiki
 
 
         }
+        private void loadcbchedoloc()
+        {
+            cbxchedocloc2.Items.Add("Chế độ lọc");
+            cbxchedocloc2.Items.Add("Mã dự án");
+            cbxchedocloc2.Items.Add("Tên dự án");
+            cbxchedocloc2.Items.Add("Tên phòng");
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            c.TabPages.RemoveByKey("pagetiendodean");
+        }
+
+        private void tbxlochitiet2_TextChanged(object sender, EventArgs e)
+        {
+            if (cbxchedocloc2.Text == "Mã dự án")
+            {
+
+                tiendodean.locdulieu("MADUAN like'" + tbxlochitiet2.Text + "*'");
+
+            }
+            if (cbxchedocloc2.Text == "Tên phòng")
+            {
+
+                tiendodean.locdulieu("TENPHONG like'" + tbxlochitiet2.Text + "*'");
+
+            }
+            if (cbxchedocloc2.Text == "Tên dự án")
+            {
+
+                tiendodean.locdulieu("TENDA like'" + tbxlochitiet2.Text + "*'");
+
+            }
+          
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            Lưu.Visible = true;
         }
     } 
 }

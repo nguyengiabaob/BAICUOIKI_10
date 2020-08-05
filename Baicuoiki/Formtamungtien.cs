@@ -8,13 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Baicuoiki.Bang;
+using System.Data.SqlClient;
 
 namespace Baicuoiki
 {
     public partial class Formtamungtien : Form
     {
+        TabControl c = null;
         public Formtamungtien()
         {
+            InitializeComponent();
+        }
+        public Formtamungtien(TabControl t)
+        {
+            c = t;
             InitializeComponent();
         }
         Bangnhanvien tbnhanvien = new Bangnhanvien();
@@ -87,18 +94,31 @@ namespace Baicuoiki
             if(e.RowIndex>=0&&e.ColumnIndex==6)
             {
                 tbluongtamung.Rows[e.RowIndex].Delete();
-                tbluongtamung.ghi();
-                if (tbluongtamung.ghi() == true)
+                try
                 {
-                    MessageBox.Show("Xóa thành công!!!");
+                    if (tbluongtamung.ghi() == true)
+                    {
+                        MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             if(e.RowIndex >= 0 && e.ColumnIndex == 5)
             {
-                tbluongtamung.ghi();
-                if(tbluongtamung.ghi()==true)
+                tbluongtamung.Rows[e.RowIndex].EndEdit();
+                try
                 {
-                    MessageBox.Show("Lưu thành công!!!");
+                    if (tbluongtamung.ghi() == true)
+                    {
+                        MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -114,6 +134,17 @@ namespace Baicuoiki
             {
                 r.Cells[0].Value = r.Index + 1;
             }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            c.TabPages.RemoveByKey("pageluongtamung");
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            Lưu.Visible = true;
+            Xóa.Visible = true;
         }
     }
         

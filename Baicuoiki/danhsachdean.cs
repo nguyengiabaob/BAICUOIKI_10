@@ -11,13 +11,19 @@ using Baicuoiki.Bang;
 using System.Data.SqlClient;
 
 namespace Baicuoiki
-{
+{   
     public partial class danhsachdean : Form
     {
+        TabControl c = null;
         duan tbduan = new duan();
         BindingManagerBase bduan;
         public danhsachdean()
         {
+            InitializeComponent();
+        }
+        public danhsachdean(TabControl t)
+        {
+            c = t;
             InitializeComponent();
         }
 
@@ -99,17 +105,30 @@ namespace Baicuoiki
             }
             if (e.RowIndex >= 0 && e.ColumnIndex == 6)
             {
-                tbduan.ghi();
-                if (tbduan.ghi() == true)
+                try
                 {
-                    MessageBox.Show("Lưu thành công!!!");
+                    tbduan.ghi();
+                    if (tbduan.ghi() == true)
+                    {
+                        MessageBox.Show("Lưu thành công!!!");
+                    }
+                }
+                catch(SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void btin_Click(object sender, EventArgs e)
         {
-            this.Close();
+            c.TabPages.RemoveByKey("pagedanhsachdean");
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            Lưu.Visible = true;
+            Xóa.Visible = true;
         }
     }
 }

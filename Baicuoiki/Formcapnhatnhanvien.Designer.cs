@@ -37,6 +37,11 @@
             this.LBTRANG = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.btchonhinh = new DevExpress.XtraEditors.SimpleButton();
+            this.btcuoi = new DevExpress.XtraEditors.SimpleButton();
+            this.btsau = new DevExpress.XtraEditors.SimpleButton();
+            this.bttruoc = new DevExpress.XtraEditors.SimpleButton();
+            this.btdau = new DevExpress.XtraEditors.SimpleButton();
             this.pictureavatar = new DevExpress.XtraEditors.PictureEdit();
             this.tbxthoihanhopdong = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -60,18 +65,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.bttimkiem = new DevExpress.XtraEditors.SimpleButton();
             this.tbxtimkiem = new System.Windows.Forms.TextBox();
             this.btluu = new DevExpress.XtraEditors.SimpleButton();
             this.bthuy = new DevExpress.XtraEditors.SimpleButton();
             this.btsua = new DevExpress.XtraEditors.SimpleButton();
             this.btxoa = new DevExpress.XtraEditors.SimpleButton();
             this.btthemmoi = new DevExpress.XtraEditors.SimpleButton();
-            this.bttimkiem = new DevExpress.XtraEditors.SimpleButton();
-            this.btchonhinh = new DevExpress.XtraEditors.SimpleButton();
-            this.btcuoi = new DevExpress.XtraEditors.SimpleButton();
-            this.btsau = new DevExpress.XtraEditors.SimpleButton();
-            this.bttruoc = new DevExpress.XtraEditors.SimpleButton();
-            this.btdau = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureavatar.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -195,6 +196,58 @@
             this.label14.Size = new System.Drawing.Size(51, 18);
             this.label14.TabIndex = 29;
             this.label14.Text = "Trang";
+            // 
+            // btchonhinh
+            // 
+            this.btchonhinh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btchonhinh.ImageOptions.Image")));
+            this.btchonhinh.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btchonhinh.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopLeft;
+            this.btchonhinh.Location = new System.Drawing.Point(1126, 288);
+            this.btchonhinh.Name = "btchonhinh";
+            this.btchonhinh.Size = new System.Drawing.Size(121, 40);
+            this.btchonhinh.TabIndex = 28;
+            this.btchonhinh.Text = "Chọn Hỉnh";
+            this.btchonhinh.Click += new System.EventHandler(this.btchonhinh_Click);
+            // 
+            // btcuoi
+            // 
+            this.btcuoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btcuoi.ImageOptions.Image")));
+            this.btcuoi.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btcuoi.Location = new System.Drawing.Point(445, 288);
+            this.btcuoi.Name = "btcuoi";
+            this.btcuoi.Size = new System.Drawing.Size(98, 49);
+            this.btcuoi.TabIndex = 27;
+            this.btcuoi.Click += new System.EventHandler(this.btcuoi_Click);
+            // 
+            // btsau
+            // 
+            this.btsau.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btsau.ImageOptions.Image")));
+            this.btsau.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btsau.Location = new System.Drawing.Point(312, 288);
+            this.btsau.Name = "btsau";
+            this.btsau.Size = new System.Drawing.Size(91, 49);
+            this.btsau.TabIndex = 26;
+            this.btsau.Click += new System.EventHandler(this.btsau_Click);
+            // 
+            // bttruoc
+            // 
+            this.bttruoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bttruoc.ImageOptions.Image")));
+            this.bttruoc.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.bttruoc.Location = new System.Drawing.Point(180, 288);
+            this.bttruoc.Name = "bttruoc";
+            this.bttruoc.Size = new System.Drawing.Size(91, 49);
+            this.bttruoc.TabIndex = 25;
+            this.bttruoc.Click += new System.EventHandler(this.bttruoc_Click);
+            // 
+            // btdau
+            // 
+            this.btdau.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btdau.ImageOptions.Image")));
+            this.btdau.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btdau.Location = new System.Drawing.Point(56, 288);
+            this.btdau.Name = "btdau";
+            this.btdau.Size = new System.Drawing.Size(91, 49);
+            this.btdau.TabIndex = 24;
+            this.btdau.Click += new System.EventHandler(this.btdau_Click);
             // 
             // pictureavatar
             // 
@@ -432,6 +485,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tìm kiếm";
             // 
+            // bttimkiem
+            // 
+            this.bttimkiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bttimkiem.ImageOptions.Image")));
+            this.bttimkiem.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+            this.bttimkiem.Location = new System.Drawing.Point(587, 21);
+            this.bttimkiem.Name = "bttimkiem";
+            this.bttimkiem.Size = new System.Drawing.Size(105, 37);
+            this.bttimkiem.TabIndex = 25;
+            this.bttimkiem.Click += new System.EventHandler(this.bttimkiem_Click);
+            // 
             // tbxtimkiem
             // 
             this.tbxtimkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -446,7 +509,7 @@
             // btluu
             // 
             this.btluu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btluu.ImageOptions.Image")));
-            this.btluu.Location = new System.Drawing.Point(468, 570);
+            this.btluu.Location = new System.Drawing.Point(405, 569);
             this.btluu.Name = "btluu";
             this.btluu.Size = new System.Drawing.Size(124, 57);
             this.btluu.TabIndex = 7;
@@ -456,9 +519,9 @@
             // bthuy
             // 
             this.bthuy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bthuy.ImageOptions.Image")));
-            this.bthuy.Location = new System.Drawing.Point(933, 570);
+            this.bthuy.Location = new System.Drawing.Point(881, 569);
             this.bthuy.Name = "bthuy";
-            this.bthuy.Size = new System.Drawing.Size(139, 57);
+            this.bthuy.Size = new System.Drawing.Size(152, 57);
             this.bthuy.TabIndex = 6;
             this.bthuy.Text = "Hủy thông tin";
             this.bthuy.Click += new System.EventHandler(this.bthuy_Click);
@@ -466,9 +529,9 @@
             // btsua
             // 
             this.btsua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btsua.ImageOptions.Image")));
-            this.btsua.Location = new System.Drawing.Point(771, 570);
+            this.btsua.Location = new System.Drawing.Point(708, 569);
             this.btsua.Name = "btsua";
-            this.btsua.Size = new System.Drawing.Size(139, 57);
+            this.btsua.Size = new System.Drawing.Size(156, 57);
             this.btsua.TabIndex = 5;
             this.btsua.Text = "Sửa thông tin";
             this.btsua.Click += new System.EventHandler(this.btsua_Click);
@@ -476,9 +539,9 @@
             // btxoa
             // 
             this.btxoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btxoa.ImageOptions.Image")));
-            this.btxoa.Location = new System.Drawing.Point(614, 570);
+            this.btxoa.Location = new System.Drawing.Point(551, 569);
             this.btxoa.Name = "btxoa";
-            this.btxoa.Size = new System.Drawing.Size(132, 57);
+            this.btxoa.Size = new System.Drawing.Size(137, 57);
             this.btxoa.TabIndex = 4;
             this.btxoa.Text = "Xóa thông tin";
             this.btxoa.Click += new System.EventHandler(this.btxoa_Click);
@@ -486,73 +549,22 @@
             // btthemmoi
             // 
             this.btthemmoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btthemmoi.ImageOptions.Image")));
-            this.btthemmoi.Location = new System.Drawing.Point(323, 570);
+            this.btthemmoi.Location = new System.Drawing.Point(260, 569);
             this.btthemmoi.Name = "btthemmoi";
             this.btthemmoi.Size = new System.Drawing.Size(124, 57);
             this.btthemmoi.TabIndex = 3;
             this.btthemmoi.Text = "Thêm mới ";
             this.btthemmoi.Click += new System.EventHandler(this.btthemmoi_Click);
             // 
-            // bttimkiem
+            // simpleButton1
             // 
-            this.bttimkiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bttimkiem.ImageOptions.Image")));
-            this.bttimkiem.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-            this.bttimkiem.Location = new System.Drawing.Point(587, 21);
-            this.bttimkiem.Name = "bttimkiem";
-            this.bttimkiem.Size = new System.Drawing.Size(105, 37);
-            this.bttimkiem.TabIndex = 25;
-            this.bttimkiem.Click += new System.EventHandler(this.bttimkiem_Click);
-            // 
-            // btchonhinh
-            // 
-            this.btchonhinh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btchonhinh.ImageOptions.Image")));
-            this.btchonhinh.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btchonhinh.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopLeft;
-            this.btchonhinh.Location = new System.Drawing.Point(1126, 288);
-            this.btchonhinh.Name = "btchonhinh";
-            this.btchonhinh.Size = new System.Drawing.Size(113, 40);
-            this.btchonhinh.TabIndex = 28;
-            this.btchonhinh.Text = "Chọn Hỉnh";
-            // 
-            // btcuoi
-            // 
-            this.btcuoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btcuoi.ImageOptions.Image")));
-            this.btcuoi.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btcuoi.Location = new System.Drawing.Point(445, 288);
-            this.btcuoi.Name = "btcuoi";
-            this.btcuoi.Size = new System.Drawing.Size(98, 49);
-            this.btcuoi.TabIndex = 27;
-            this.btcuoi.Click += new System.EventHandler(this.btcuoi_Click);
-            // 
-            // btsau
-            // 
-            this.btsau.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btsau.ImageOptions.Image")));
-            this.btsau.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btsau.Location = new System.Drawing.Point(312, 288);
-            this.btsau.Name = "btsau";
-            this.btsau.Size = new System.Drawing.Size(91, 49);
-            this.btsau.TabIndex = 26;
-            this.btsau.Click += new System.EventHandler(this.btsau_Click);
-            // 
-            // bttruoc
-            // 
-            this.bttruoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bttruoc.ImageOptions.Image")));
-            this.bttruoc.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.bttruoc.Location = new System.Drawing.Point(180, 288);
-            this.bttruoc.Name = "bttruoc";
-            this.bttruoc.Size = new System.Drawing.Size(91, 49);
-            this.bttruoc.TabIndex = 25;
-            this.bttruoc.Click += new System.EventHandler(this.bttruoc_Click);
-            // 
-            // btdau
-            // 
-            this.btdau.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btdau.ImageOptions.Image")));
-            this.btdau.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btdau.Location = new System.Drawing.Point(56, 288);
-            this.btdau.Name = "btdau";
-            this.btdau.Size = new System.Drawing.Size(91, 49);
-            this.btdau.TabIndex = 24;
-            this.btdau.Click += new System.EventHandler(this.btdau_Click);
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(1058, 569);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(152, 57);
+            this.simpleButton1.TabIndex = 8;
+            this.simpleButton1.Text = "Thoát";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
             // 
             // Formcapnhatnhanvien
             // 
@@ -560,6 +572,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1382, 655);
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btluu);
             this.Controls.Add(this.bthuy);
             this.Controls.Add(this.btsua);
@@ -626,5 +639,6 @@
         private DevExpress.XtraEditors.SimpleButton bthuy;
         private System.Windows.Forms.ComboBox cbxtenphong;
         private DevExpress.XtraEditors.SimpleButton btluu;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

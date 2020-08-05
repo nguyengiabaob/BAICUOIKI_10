@@ -25,6 +25,9 @@ namespace Baicuoiki
 
                 case 1:
                     {
+                        phanhethong.Visible = true;
+                        phanphongban.Visible = true;
+                        phandean.Visible = true;
                         btdangxuat.Enabled = true;
                         btdoimatkhau.Enabled = true;
 
@@ -38,6 +41,8 @@ namespace Baicuoiki
                         break;
                     }
                 case 0:
+                    phannhanvien.Visible = true;
+                    phanluong.Visible =true;
                     btdangxuat.Enabled = true;
                     btdoimatkhau.Enabled = true;
                     btcapnhatnhanvien.Enabled = true;
@@ -75,7 +80,7 @@ namespace Baicuoiki
             }
             else
             {
-                Formcapnhatnhanvien cnnhanvien = new Formcapnhatnhanvien();
+                Formcapnhatnhanvien cnnhanvien = new Formcapnhatnhanvien(tabControlmain);
                 TabPage p = new TabPage("Cập nhật danh sách nhân viên");
                 p.Name = "pagecapnhatnhanvien";
                 cnnhanvien.TopLevel = false;
@@ -84,6 +89,7 @@ namespace Baicuoiki
                 cnnhanvien.Dock = DockStyle.Fill;
                 tabControlmain.TabPages.Add(p);
                 cnnhanvien.Show();
+           
             }
 
         }
@@ -91,7 +97,7 @@ namespace Baicuoiki
         private void formmain_Load(object sender, EventArgs e)
         {
            
-            formdangnhap dangnhap = new formdangnhap(this);
+             formdangnhap dangnhap = new formdangnhap(this);
             dangnhap.StartPosition = FormStartPosition.CenterScreen;
             dangnhap.WindowState = FormWindowState.Normal;
             dangnhap.ShowDialog();
@@ -107,7 +113,7 @@ namespace Baicuoiki
             }
             else
             {
-                Formdanhsachsinhvien dsnhanvien = new Formdanhsachsinhvien();
+                Formdanhsachsinhvien dsnhanvien = new Formdanhsachsinhvien(tabControlmain);
                 TabPage p = new TabPage(dsnhanvien.Text);
                 p.Name = "pagedanhsachnhanvien";
                 dsnhanvien.TopLevel = false;
@@ -133,7 +139,7 @@ namespace Baicuoiki
             }
             else
             {
-                Formkhenthuongvakiluat khenthuongkiluat = new Formkhenthuongvakiluat();
+                Formkhenthuongvakiluat khenthuongkiluat = new Formkhenthuongvakiluat(tabControlmain);
                 TabPage p = new TabPage(khenthuongkiluat.Text);
                 p.Name = "pagekhenthuongvakiluat";
                 khenthuongkiluat.TopLevel = false;
@@ -158,7 +164,7 @@ namespace Baicuoiki
             }
             else
             {
-                danhsachdean dsdean = new danhsachdean();
+                danhsachdean dsdean = new danhsachdean(tabControlmain);
                 TabPage p = new TabPage(dsdean.Text);
                 p.Name = "pagedanhsachdean";
                 dsdean.TopLevel = false;
@@ -200,7 +206,7 @@ namespace Baicuoiki
             }
             else
             {
-                 formtiendodean tiendodean = new formtiendodean() ;
+                 formtiendodean tiendodean = new formtiendodean(tabControlmain) ;
                 TabPage p = new TabPage(tiendodean.Text);
                 p.Name = "pagetiendodean";
                 tiendodean.TopLevel = false;
@@ -221,7 +227,7 @@ namespace Baicuoiki
             }
             else
             {
-                danhsachphongban danhsachphongban = new danhsachphongban();
+                danhsachphongban danhsachphongban = new danhsachphongban(tabControlmain);
                 TabPage p = new TabPage(danhsachphongban.Text);
                 p.Name = "pagedanhsachphongban";
                 danhsachphongban.TopLevel = false;
@@ -242,7 +248,7 @@ namespace Baicuoiki
             }
             else
             {
-               Formtamungtien tamungtien = new Formtamungtien();
+               Formtamungtien tamungtien = new Formtamungtien(tabControlmain);
                 TabPage p = new TabPage(tamungtien.Text);
                 p.Name = "pageluongtamung";
                 tamungtien.TopLevel = false;
@@ -263,7 +269,7 @@ namespace Baicuoiki
             }
             else
             {
-                Formtinhluong tinhluong = new Formtinhluong();
+                Formtinhluong tinhluong = new Formtinhluong(tabControlmain);
                 TabPage p = new TabPage(tinhluong.Text);
                 p.Name = "pagetinhluong";
                 tinhluong.TopLevel = false;
@@ -283,7 +289,7 @@ namespace Baicuoiki
                 tabControlmain.SelectedIndex = index;
             }
             else
-            {Formluongtheothanhtich tinhluongtheothanhtich = new Formluongtheothanhtich();
+            {Formluongtheothanhtich tinhluongtheothanhtich = new Formluongtheothanhtich(tabControlmain);
                 TabPage p = new TabPage(tinhluongtheothanhtich.Text);
                 p.Name = "pagetinhluongtheothanhtich";
                 tinhluongtheothanhtich.TopLevel = false;
@@ -299,7 +305,7 @@ namespace Baicuoiki
         {
            
             tabControlmain.TabPages.Clear();
-            this.Hide() ;
+            this.Hide();
             formmain_Load(sender, e);
             shown();
         }

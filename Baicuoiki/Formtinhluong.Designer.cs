@@ -51,15 +51,16 @@
             this.btxóa = new DevExpress.XtraEditors.SimpleButton();
             this.btthem = new DevExpress.XtraEditors.SimpleButton();
             this.dgvtinhluong = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoGio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label6 = new System.Windows.Forms.Label();
+            this.Lưu = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.xóa = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownsogio)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -268,9 +269,9 @@
             // btxóa
             // 
             this.btxóa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btxóa.ImageOptions.Image")));
-            this.btxóa.Location = new System.Drawing.Point(919, 353);
+            this.btxóa.Location = new System.Drawing.Point(1159, 351);
             this.btxóa.Name = "btxóa";
-            this.btxóa.Size = new System.Drawing.Size(122, 45);
+            this.btxóa.Size = new System.Drawing.Size(122, 50);
             this.btxóa.TabIndex = 12;
             this.btxóa.Text = "Thoát";
             this.btxóa.Click += new System.EventHandler(this.btxóa_Click);
@@ -278,9 +279,9 @@
             // btthem
             // 
             this.btthem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btthem.ImageOptions.Image")));
-            this.btthem.Location = new System.Drawing.Point(773, 353);
+            this.btthem.Location = new System.Drawing.Point(773, 351);
             this.btthem.Name = "btthem";
-            this.btthem.Size = new System.Drawing.Size(123, 45);
+            this.btthem.Size = new System.Drawing.Size(123, 55);
             this.btthem.TabIndex = 11;
             this.btthem.Text = "Tính lương";
             this.btthem.Click += new System.EventHandler(this.btthem_Click);
@@ -295,8 +296,8 @@
             this.Column2,
             this.Column3,
             this.SoGio,
-            this.Column1,
-            this.Column7});
+            this.Lưu,
+            this.xóa});
             this.dgvtinhluong.Location = new System.Drawing.Point(42, 455);
             this.dgvtinhluong.Name = "dgvtinhluong";
             this.dgvtinhluong.RowTemplate.Height = 24;
@@ -304,6 +305,27 @@
             this.dgvtinhluong.TabIndex = 13;
             this.dgvtinhluong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvtinhluongtheothanhtich_CellContentClick);
             this.dgvtinhluong.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvtinhluong_DataBindingComplete);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Green;
+            this.label6.Location = new System.Drawing.Point(39, 435);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(158, 20);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Chi tiết tiền lương";
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(956, 351);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(139, 50);
+            this.simpleButton2.TabIndex = 15;
+            this.simpleButton2.Text = "Sửa thông tin";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // STT
             // 
@@ -340,30 +362,21 @@
             this.SoGio.HeaderText = "Tổng lương";
             this.SoGio.Name = "SoGio";
             // 
-            // Column1
+            // Lưu
             // 
-            this.Column1.HeaderText = "Lưu";
-            this.Column1.Name = "Column1";
-            this.Column1.Text = "Lưu";
-            this.Column1.UseColumnTextForButtonValue = true;
+            this.Lưu.HeaderText = "Lưu";
+            this.Lưu.Name = "Lưu";
+            this.Lưu.Text = "Lưu";
+            this.Lưu.UseColumnTextForButtonValue = true;
+            this.Lưu.Visible = false;
             // 
-            // Column7
+            // xóa
             // 
-            this.Column7.HeaderText = "Xóa";
-            this.Column7.Name = "Column7";
-            this.Column7.Text = "Xóa";
-            this.Column7.UseColumnTextForButtonValue = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Green;
-            this.label6.Location = new System.Drawing.Point(39, 435);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(158, 20);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Chi tiết tiền lương";
+            this.xóa.HeaderText = "Xóa";
+            this.xóa.Name = "xóa";
+            this.xóa.Text = "Xóa";
+            this.xóa.UseColumnTextForButtonValue = true;
+            this.xóa.Visible = false;
             // 
             // Formtinhluong
             // 
@@ -371,6 +384,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1348, 628);
+            this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvtinhluong);
             this.Controls.Add(this.btxóa);
@@ -416,14 +430,15 @@
         private System.Windows.Forms.TextBox tbxmanhanvien;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvtinhluong;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MANV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoGio;
-        private System.Windows.Forms.DataGridViewButtonColumn Column1;
-        private System.Windows.Forms.DataGridViewButtonColumn Column7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewButtonColumn Lưu;
+        private System.Windows.Forms.DataGridViewButtonColumn xóa;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }

@@ -8,15 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Baicuoiki.Bang;
+using System.Data.SqlClient;
 
 
 namespace Baicuoiki
 {
     public partial class Formphancongdean : Form
     {
+        TabControl c = null;
         duan duan = new duan();
         Phongban tbphong = new Phongban();
-        TabControl tabcontrol = null;
+        
         phancongdean pcdean = new phancongdean();
         Bangnhanvien tbnhanvien = new Bangnhanvien();
         DataSet ds = new DataSet();
@@ -25,11 +27,22 @@ namespace Baicuoiki
         {
             InitializeComponent();
         }
-        public Formphancongdean(TabControl tab)
+        public Formphancongdean(TabControl t)
         {
-            tabcontrol = tab;
-            
+            c = t;
             InitializeComponent();
+        }
+        private void load()
+        {
+            cbxtendean.SelectedIndex = -1;
+            cbtenphongphancong.SelectedIndex = -1;
+            tbxdiadiem.Text = "";
+            tbxmadean.Text = "";
+            tbxmaphong.Text="";
+            tbxmatrhp.Text = "";
+            tbxtruongphong.Text = "";
+            tbxttienloinhuan.Text="";
+            
         }
         private void loadcbtendean()
         {
@@ -67,23 +80,10 @@ namespace Baicuoiki
 
         private void btxemdanhsach_Click(object sender, EventArgs e)
         {
-            int index = tabcontrol.TabPages.IndexOfKey("pagedanhsachdean");
-            if (index >= 0)
-            {
-                tabcontrol.SelectedIndex = index;
-            }
-            else
-            {
-                danhsachdean dsdean = new danhsachdean();
-                TabPage p = new TabPage(dsdean.Text);
-                p.Name = "pagedanhsachdean";
-                dsdean.TopLevel = false;
-                p.Controls.Add(dsdean);
-                dsdean.Dock = DockStyle.Fill;
-                dsdean.FormBorderStyle = FormBorderStyle.None;
-                tabcontrol.TabPages.Add(p);
-                dsdean.Show();
-            }
+
+            formdanhsachphancongdeancs f = new formdanhsachphancongdeancs();
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.ShowDialog();
         }
         private void addcot1()
         {
@@ -130,6 +130,7 @@ namespace Baicuoiki
             addcot3();
             loadcbtendean();
             cbtenphong();
+            load();
             //loadthongtinphancong();
             //LOADTHONGITNDEAN();
           
@@ -171,16 +172,36 @@ namespace Baicuoiki
 
         private void btluuphancong_Click(object sender, EventArgs e)
         {
-            int mn = pcdean.getcount;
-            DataRow r = pcdean.NewRow();
-            r["MADEAN"] = tbxmadean.Text;
-            r["MAPHONG"] = tbxmaphong.Text;
-            r["THOIGIANBATDAU"] = dateTimePickertgbatdau.Text;
-            r["THOIGIANKETTHUC"] = dateTimePickerketthuc.Text;
-            r["TENDA"] = cbtenphongphancong.Text;
-            r["TENTRUONGPHONG"] = tbxtruongphong.Text;
-            pcdean.Rows.Add(r);
-            pcdean.ghi();
+            int t = 0;
+            if (tbxmadean.Text == "" || tbxttienloinhuan.Text == "" || tbxdiadiem.Text == "" || tbxmaphong.Text == "" || tbxtruongphong.Text == "" || tbxmatrhp.Text == "")
+            {
+                t = 1;
+                MessageBox.Show("Thông tin chưa điền đầy đũ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (t == 1)
+            {
+                int mn = pcdean.getcount;
+                DataRow r = pcdean.NewRow();
+                r["MADEAN"] = tbxmadean.Text;
+                r["MAPHONG"] = tbxmaphong.Text;
+                r["THOIGIANBATDAU"] = dateTimePickertgbatdau.Text;
+                r["THOIGIANKETTHUC"] = dateTimePickerketthuc.Text;
+                r["TENDA"] = cbtenphongphancong.Text;
+                r["TENTRUONGPHONG"] = tbxtruongphong.Text;
+                pcdean.Rows.Add(r);
+                try
+                {
+                    pcdean.ghi();
+                    if (pcdean.ghi() == true)
+                    {
+                        MessageBox.Show("Lưu thành công!!!");
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btxoaphancong_Click(object sender, EventArgs e)
@@ -192,6 +213,12 @@ namespace Baicuoiki
             tbxtruongphong.Text = "";
             tbxmatrhp.Text = "";
 
+        }
+
+        
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            c.TabPages.RemoveByKey("pagephancongdean");
         }
     }
 }

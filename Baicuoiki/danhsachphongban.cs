@@ -8,13 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Baicuoiki.Bang;
+using System.Data.SqlClient;
 
 namespace Baicuoiki
 {
     public partial class danhsachphongban : Form
     {
+        TabControl c = null;
         public danhsachphongban()
         {
+            InitializeComponent();
+        }
+        public danhsachphongban(TabControl t)
+        {
+            c = t;
             InitializeComponent();
         }
         Phongban phongban = new Phongban();
@@ -41,8 +48,8 @@ namespace Baicuoiki
             addcot();
             dataGridViewdanhsachphongban.AutoGenerateColumns = false;
             dataGridViewdanhsachphongban.DataSource = phongban;
-                
-            
+
+
         }
         private void loadcbchedoloc()
         {
@@ -79,12 +86,12 @@ namespace Baicuoiki
                 phongban.locdulieu("TENTRUONGPHONG like'" + tbxlochitiet2.Text + "*'");
 
             }
-           
+
         }
 
         private void dataGridViewdanhsachphongban_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            foreach(DataGridViewRow r in dataGridViewdanhsachphongban.Rows)
+            foreach (DataGridViewRow r in dataGridViewdanhsachphongban.Rows)
             {
                 r.Cells[0].Value = r.Index + 1;
             }
@@ -93,7 +100,7 @@ namespace Baicuoiki
         private void cbxchedocloc2_SelectionChangeCommitted(object sender, EventArgs e)
         {
             object cdl = "Chế độ lọc";
-            if (cbxchedocloc2.SelectedItem==cdl)
+            if (cbxchedocloc2.SelectedItem == cdl)
             {
                 phongban.locdulieu("MAPHG is not null");
             }
@@ -101,29 +108,57 @@ namespace Baicuoiki
 
         private void dataGridViewdanhsachphongban_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex>=0&& e.ColumnIndex==6)
+            if (e.RowIndex >= 0 && e.ColumnIndex == 6)
             {
-                dataGridViewdanhsachphongban.EndEdit();
-                if(phongban.ghi()==true&&tbnhanvien.ghi()==true)
+               phongban.Rows[e.RowIndex].EndEdit();
+                try
                 {
-                    MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (phongban.ghi() == true && tbnhanvien.ghi() == true)
+                    {
+                        MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             if (e.RowIndex >= 0 && e.ColumnIndex == 7)
             {
                 phongban.Rows[e.RowIndex].Delete();
-                DataRow[]r=tbnhanvien.Select("MANV='" + phongban.Rows[e.RowIndex]["TRPHG"] + "'");
+                DataRow[] r = tbnhanvien.Select("MANV='" + phongban.Rows[e.RowIndex]["TRPHG"] + "'");
                 r[0]["CHUCVU"] = DBNull.Value;
-                if (phongban.ghi() == true && tbnhanvien.ghi() == true)
+                try
                 {
-                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (phongban.ghi() == true && tbnhanvien.ghi() == true)
+                    {
+                        MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            c.TabPages.RemoveByKey("pagedanhsachphongban");
+
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            DataRow r = phongban.NewRow();
+            phongban.Rows.Add(r);
+            lưu.Visible = true;
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            lưu.Visible = true;
+            Xóa.Visible = true;
         }
     }
 }

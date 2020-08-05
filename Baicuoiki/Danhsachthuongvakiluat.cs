@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Baicuoiki.Bang;
-
+using System.Data.SqlClient;
 namespace Baicuoiki
 {
     public partial class Danhsachthuongvakiluat : Form
@@ -103,19 +103,30 @@ namespace Baicuoiki
             {
                 
                 tbkhenthuongvakiluat.Rows[e.RowIndex].EndEdit();
-                tbkhenthuongvakiluat.ghi();
-                if (tbkhenthuongvakiluat.ghi())
-                    MessageBox.Show("Lưu thành cõng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                try
+                {
+                    if (tbkhenthuongvakiluat.ghi())
+                        MessageBox.Show("Lưu thành cõng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             if (e.RowIndex >= 0 && e.ColumnIndex == 7)
             {
                 tbkhenthuongvakiluat.Rows[e.RowIndex].Delete();
-                tbkhenthuongvakiluat.ghi();
-                if (tbkhenthuongvakiluat.ghi())
-                    MessageBox.Show("Xóa thành cõng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                try
+                {
+                    if (tbkhenthuongvakiluat.ghi())
+                        MessageBox.Show("Xóa thành cõng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-
+            
         }
     }
     

@@ -14,7 +14,7 @@ CREATE TABLE TAIKHOAN
 	TENNV NVARCHAR(20),
 )
 CREATE TABLE NHANVIEN /* nhân viên*/
-(
+(	STT INT IDENTITY(1,1),
 	MANV CHAR(5)  primary key,
 	HOTENNV NVARCHAR(20),
 	NGSINH DATETIME,
@@ -24,6 +24,7 @@ CREATE TABLE NHANVIEN /* nhân viên*/
 	LUONG FLOAT,
 	CHUCVU NVARCHAR(100),
 	THOIHANHOPDONG NVARCHAR(100),
+	HINH IMAGE
 	)
 CREATE TABLE PHONGBAN  /*phòng ban*/
 (
@@ -43,9 +44,9 @@ CREATE TABLE DUAN /* đề án*/
 	constraint PRK_DEAN primary key(MADA)
 )
 CREATE TABLE PHANCONG /* phân công*/
-(	
+(	ID int identity(1,1) primary key,
 	  MAPHONG int ,
-	 MADEAN CHAR(5)PRIMARY KEY ,
+	 MADEAN CHAR(5),
 	THOIGIANBATDAU DATE,
 	THOIGIANKETTHUC DATE,
 )
@@ -88,7 +89,7 @@ create table LUONGTHEOTHANHTICH
 	NGAYTHUONG DATE
 )
 
-alter table NHANVIEN add STT int identity(1 ,1)
+
 
 --KHÓA NGOẠI
 
@@ -107,7 +108,7 @@ ALTER TABLE TONGLUONG ADD CONSTRAINT FRK_TONGLUONG_NHANVIEN FOREIGN KEY (MANV) R
 
 ALTER TABLE LUONGTAMUNG ADD CONSTRAINT FRK_LUONGTAMUNG_NHANVIEN FOREIGN KEY (MANV) REFERENCES NHANVIEN(MANV);
 
-ALTER TABLE TIENDODEAN Add CONSTRAINT FRK_TIENDODEAN_DUAN FOREIGN KEY (MADEAN) REFERENCES DUAN(MADA)
+ALTER TABLE TIENDUDEAN Add CONSTRAINT FRK_TIENDODEAN_DUAN FOREIGN KEY (MADEAN) REFERENCES DUAN(MADA)
 
 
 ALTER TABLE LUONGTHEOTHANHTICH ADD CONSTRAINT FRK_LUONGTHEOTHANHTICH_NHANVIEN FOREIGN KEY (MANV) REFERENCES NHANVIEN(MANV);
@@ -116,36 +117,36 @@ alter table TAIKHOAN ADD CONSTRAINT TAIKHOAN_NHANVIEN FOREIGN KEY (MANV) REFEREN
 
 delete from TAIKHOAN
 --INSERT DATA
-INSERT into NHANVIEN (HOTENNV,MANV,NGSINH,DCHI,PHAI,LUONG,CHUCVU,PHG,THOIHANHOPDONG) VALUES	
-(N'Đinh Bá Tiến','NV004','1955-01-09 00:00:00',N'731 Trần Hưng Đạo Q1 TP HCM',N'Nam',20000,N'Nhân viên kế toán',2,N'1 năm'),
-(N'Nguyễn Thanh Tùng','NV005','1945-12-08 00:00:00',N'638 Nguyễn Văn Cừ Q5 TP HCM',N'Nam' ,20000,N'Nhân viên kế toán',2,N'2 năm'),
-(N'Trần Thanh Tâm' ,'NV006','1962-07-31 00:00:00',N'543 Mai Thi Luu Ba Dinh Ha Noi',N'Nam' ,30000,N'Trưởng phòng kế toán',2,N'3 năm'),
-(N'Nguyễn Mạnh Hùng','NV007','1952-09-15 00:00:00',N'975 Lê Lai P3 Vũng Tàu', N'Nam',35000,N'Trưởng phòng thiết kế',5,N'1 năm'),
-(N'Vương Ngọc Quỳnh','NV008','1927-10-10 00:00:00','450 Trung Vuong My Tho TG',N'Nữ',28000,N'Nhân viên kinh doanh',3,N'1 năm'),
-(N'Lê Thị Nhàn','NV009','1931-06-20 00:00:00','291 Ho Van Hue Q.PN TP HCM', N'Nữ',28000,'Nhân viên kinh doanh',3,N'2 năm'),
-(N'Trần Quang Huy','NV010','1959-03-29 00:00:00','980 Le Hong Phong Vung Tau',N'Nam',25000,'Nhân viên thiết kế',5,N'3 năm'),
-(N'Bùi Thái Vũ','NV011','1958-07-30 00:00:00','332 Nguyen Thai Hoc Quy Nhon',N'Nam',25000,'Nhân viên thiết kế', 5,N'1 năm'),
-(N'Nguyễn Ngọc Vinh','NV012','1956-07-21 00:00:00',N'332 Hoàng Hoa Thám TPHCM',N'Nam',25000,'Nhân viên thiết kế', 5,N'1 năm'),
-(N'Nguyễn Thanh Sơn','NV013','1960-12-09 00:00:00',N'638 Nguyễn Văn Cừ Q2 TP HCM',N'Nam' ,28000,N'Nhân viên kinh doanh',3,N'2 tháng'),
-(N'Đinh Bá Long','NV014','1959-02-07 00:00:00',N'700 Huỳnh Văn Hoa Q1 TP HCM',N'Nam',28000,N'Nhân viên kinh doanh',3,N'2 năm'),
-(N'Huỳnh Bá Thành','NV015','1960-05-09 00:00:00',N'652 Trần Lục Hưng  Q6 TP HCM',N'Nam',36000,N'Trưởng phòng kinh doanh',3,N'9 tháng'),
-(N'Nguyễn Long Sơn','NV016','1953-03-09 00:00:00',N'523 Nguyễn Hưng Đạo Q3 TP HCM',N'Nam',18000,N'Nhân viên Thi công',4,N'3 năm'),
-(N'Nguyễn Thanh Quốc','NV017','1941-06-09 00:00:00',N'899 Trần Bá đạo Q10 TP HCM',N'Nam',18000,N'Nhân viên Thi công',4,N'1 năm'),
-(N'Nguyễn huỳnh Sang','NV018','1955-01-09 00:00:00',N'999 Trần Hưng Đạo Q1 TP HCM','Nam',18000,N'Nhân viên Thi công',4,N'2 năm'),
-(N'Bùi Mạnh Quốc','NV019','1954-01-02 00:00:00',N'655 Mai Văn Tiến Q12 TP HCM','Nam',32000,N' Trưởng phòng thi công',4,N'3 năm'),
-(N'Lã Thị Ngọc','NV020','1955-01-09 00:00:00',N'522 Trùng Vạn Đạo Cần Thơ',N'Nữ',18000,N'Nhân viên Thi công',4,N'1 năm'),
-(N'Huỳnh Văn Tá','NV001','1940-01-05 00:00:00',N'451 Nguyễn Thành Văn Phú Quốc','Nam',null,N' Tổng giám đốc',1,NULL),
-(N'Nguyễn Anh Đại','NV002','1943-05-05 00:00:00',N'451 Nguyễn Thành Cà Mau',N'Nữ',65000,N' Phó giám đốc',1,N'5 năm'),
-(N'Lê Thị Linh','NV003','1965-05-05 00:00:00',N'430 Nguyễn Hoa Hoàng Q11 TPHCM',N'Nữ',25000,N' Thư ký',1,N'2 năm'),
-(N'Nguyễn Ngọc Thúy','NV021','1965-07-21 00:00:00',N'332 Hoàng Hoa Thám Nha Trang',N'Nữ',25000,'Nhân viên thiết kế', 7,N'3 năm'),
-(N'Bùi Thị Thi','NV022','1970-07-8 00:00:00',N'106 Trần Thái Tông, Dịch Vọng Hậu Hà Nội',N'Nam',25000,'Nhân viên thiết kế', 7,N'1 năm'),
-(N'Nguyễn Mạnh Thắng','NV023','1960-10-15 00:00:00',N'425 Kinh Dương Vươn,An Lạc, Bình Tân TPHCM ', N'Nam',35000,N'Trưởng phòng thiết kế',7,N'1 năm'),
-(N'Nguyễn Văn Long','NV024','1990-09-09 00:00:00',N'110 Đường Châu Văn Liêm, Phường 11, Quận 5 TP HCM',N'Nam',18000,N'Nhân viên Thi công',6,N'5 năm'),
-(N'Tạ Quốc Long','NV025','1992-01-02 00:00:00',N'274 Mễ Trì Thượng, Mễ Trì, Nam Từ Liêm Hà Nội',N'Nam',32000,N' Trưởng phòng thi công',6,N'4 năm'),
-(N'Nguyễn Thư Dịu','NV026','1996-01-26 00:00:00',N'69 đường Nguyễn Văn Thoại, quận Sơn Trà Đà Nẵng',N'Nữ',20000,N'Nhân viên kế toán',9,N'2 năm'),
-(N'Nguyễn Thư Dịu','NV027','1990-08-28 00:00:00',N'114 Nguyễn Văn Thoại, quận Sơn Trà Đà Nẵng',N'Nam',30000,N'Trưởng phòng kế toán',9,N'2 năm'),
-(N'Đinh Bá Thắng','NV028','1993-11-07 00:00:00',N'18 Bạch Đằng, Thạch Thang, Hải Châu Đà Nẵng',N'Nam',28000,N'Nhân viên kinh doanh',8,N'5 năm'),
-(N'Lữ Thị Nghi','NV029','1995-11-07 00:00:00',N'132 Quang Trung, Thạch Thang, Hải Châu Đà Nẵng',N'Nữ',36000,N'Trưởng phòng kinh doanh',8,N'3 năm')
+INSERT into NHANVIEN (HOTENNV,MANV,NGSINH,DCHI,PHAI,LUONG,CHUCVU,PHG,THOIHANHOPDONG,hinh) VALUES	
+(N'Đinh Bá Tiến','NV004','1955-01-09 00:00:00',N'731 Trần Hưng Đạo Q1 TP HCM',N'Nam',20000,N'Nhân viên kế toán',2,N'1 năm',null),
+(N'Nguyễn Thanh Tùng','NV005','1945-12-08 00:00:00',N'638 Nguyễn Văn Cừ Q5 TP HCM',N'Nam' ,20000,N'Nhân viên kế toán',2,N'2 năm',null),
+(N'Trần Thanh Tâm' ,'NV006','1962-07-31 00:00:00',N'543 Mai Thi Luu Ba Dinh Ha Noi',N'Nam' ,30000,N'Trưởng phòng kế toán',2,N'3 năm',null),
+(N'Nguyễn Mạnh Hùng','NV007','1952-09-15 00:00:00',N'975 Lê Lai P3 Vũng Tàu', N'Nam',35000,N'Trưởng phòng thiết kế',5,N'1 năm',null),
+(N'Vương Ngọc Quỳnh','NV008','1927-10-10 00:00:00','450 Trung Vuong My Tho TG',N'Nữ',28000,N'Nhân viên kinh doanh',3,N'1 năm',null),
+(N'Lê Thị Nhàn','NV009','1931-06-20 00:00:00','291 Ho Van Hue Q.PN TP HCM', N'Nữ',28000,N'Nhân viên kinh doanh',3,N'2 năm',null),
+(N'Trần Quang Huy','NV010','1959-03-29 00:00:00','980 Le Hong Phong Vung Tau',N'Nam',25000,N'Nhân viên thiết kế',5,N'3 năm',null),
+(N'Bùi Thái Vũ','NV011','1958-07-30 00:00:00','332 Nguyen Thai Hoc Quy Nhon',N'Nam',25000,N'Nhân viên thiết kế', 5,N'1 năm',null),
+(N'Nguyễn Ngọc Vinh','NV012','1956-07-21 00:00:00',N'332 Hoàng Hoa Thám TPHCM',N'Nam',25000,N'Nhân viên thiết kế', 5,N'1 năm',null),
+(N'Nguyễn Thanh Sơn','NV013','1960-12-09 00:00:00',N'638 Nguyễn Văn Cừ Q2 TP HCM',N'Nam' ,28000,N'Nhân viên kinh doanh',3,N'2 tháng',null),
+(N'Đinh Bá Long','NV014','1959-02-07 00:00:00',N'700 Huỳnh Văn Hoa Q1 TP HCM',N'Nam',28000,N'Nhân viên kinh doanh',3,N'2 năm',null),
+(N'Huỳnh Bá Thành','NV015','1960-05-09 00:00:00',N'652 Trần Lục Hưng  Q6 TP HCM',N'Nam',36000,N'Trưởng phòng kinh doanh',3,N'9 tháng',null),
+(N'Nguyễn Long Sơn','NV016','1953-03-09 00:00:00',N'523 Nguyễn Hưng Đạo Q3 TP HCM',N'Nam',18000,N'Nhân viên Thi công',4,N'3 năm',null),
+(N'Nguyễn Thanh Quốc','NV017','1941-06-09 00:00:00',N'899 Trần Bá đạo Q10 TP HCM',N'Nam',18000,N'Nhân viên Thi công',4,N'1 năm',null),
+(N'Nguyễn huỳnh Sang','NV018','1955-01-09 00:00:00',N'999 Trần Hưng Đạo Q1 TP HCM','Nam',18000,N'Nhân viên Thi công',4,N'2 năm',null),
+(N'Bùi Mạnh Quốc','NV019','1954-01-02 00:00:00',N'655 Mai Văn Tiến Q12 TP HCM','Nam',32000,N' Trưởng phòng thi công',4,N'3 năm',null),
+(N'Lã Thị Ngọc','NV020','1955-01-09 00:00:00',N'522 Trùng Vạn Đạo Cần Thơ',N'Nữ',18000,N'Nhân viên Thi công',4,N'1 năm',null),
+(N'Huỳnh Văn Tá','NV001','1940-01-05 00:00:00',N'451 Nguyễn Thành Văn Phú Quốc','Nam',null,N' Tổng giám đốc',1,NULL,null),
+(N'Nguyễn Anh Đại','NV002','1943-05-05 00:00:00',N'451 Nguyễn Thành Cà Mau',N'Nữ',65000,N' Phó giám đốc',1,N'5 năm',null),
+(N'Lê Thị Linh','NV003','1965-05-05 00:00:00',N'430 Nguyễn Hoa Hoàng Q11 TPHCM',N'Nữ',25000,N' Thư ký',1,N'2 năm',null),
+(N'Nguyễn Ngọc Thúy','NV021','1965-07-21 00:00:00',N'332 Hoàng Hoa Thám Nha Trang',N'Nữ',25000,'Nhân viên thiết kế', 7,N'3 năm',null),
+(N'Bùi Thị Thi','NV022','1970-07-8 00:00:00',N'106 Trần Thái Tông, Dịch Vọng Hậu Hà Nội',N'Nam',25000,'Nhân viên thiết kế', 7,N'1 năm',null),
+(N'Nguyễn Mạnh Thắng','NV023','1960-10-15 00:00:00',N'425 Kinh Dương Vươn,An Lạc, Bình Tân TPHCM ', N'Nam',35000,N'Trưởng phòng thiết kế',7,N'1 năm',null),
+(N'Nguyễn Văn Long','NV024','1990-09-09 00:00:00',N'110 Đường Châu Văn Liêm, Phường 11, Quận 5 TP HCM',N'Nam',18000,N'Nhân viên Thi công',6,N'5 năm',null),
+(N'Tạ Quốc Long','NV025','1992-01-02 00:00:00',N'274 Mễ Trì Thượng, Mễ Trì, Nam Từ Liêm Hà Nội',N'Nam',32000,N' Trưởng phòng thi công',6,N'4 năm',null),
+(N'Nguyễn Thư Dịu','NV026','1996-01-26 00:00:00',N'69 đường Nguyễn Văn Thoại, quận Sơn Trà Đà Nẵng',N'Nữ',20000,N'Nhân viên kế toán',9,N'2 năm',null),
+(N'Nguyễn Thư Dịu','NV027','1990-08-28 00:00:00',N'114 Nguyễn Văn Thoại, quận Sơn Trà Đà Nẵng',N'Nam',30000,N'Trưởng phòng kế toán',9,N'2 năm',null),
+(N'Đinh Bá Thắng','NV028','1993-11-07 00:00:00',N'18 Bạch Đằng, Thạch Thang, Hải Châu Đà Nẵng',N'Nam',28000,N'Nhân viên kinh doanh',8,N'5 năm',null),
+(N'Lữ Thị Nghi','NV029','1995-11-07 00:00:00',N'132 Quang Trung, Thạch Thang, Hải Châu Đà Nẵng',N'Nữ',36000,N'Trưởng phòng kinh doanh',8,N'3 năm',null)
 
 
 insert into TAIKHOAN (MANV,MAPHANQUYEN,USERNAME,MATKHAU,TENNV) VALUES
@@ -358,4 +359,27 @@ else
  go
  exec dbo.luongtamungngay()
  go
+ create trigger kiemtraphancong on phancong
+ after insert,update,delete
+ as
+ begin transaction
+ if exists( select * from inserted  where inserted.THOIGIANBATDAU>= inserted.THOIGIANKETTHUC)
+ begin
+ raiserror ('Thời gian kết thúc phải lớn hơn thời gian bắt đầu',0,1)
+ rollback transaction
+ end
+ else
+ commit transaction
+ go
+ create trigger kiemtraphancong1 on phancong
+ after insert,update,delete
+ as
+ begin transaction
+ if exists( select * from inserted i inner join PHANCONG pc on i.MADEAN=pc.MADEAN  where i.MAPHONG= pc.MAPHONG)
+ begin
+ raiserror ('Dự án đã được phân công cho phòng này rồi',0,1)
+ rollback transaction
+ end
+ else
+ commit transaction
  

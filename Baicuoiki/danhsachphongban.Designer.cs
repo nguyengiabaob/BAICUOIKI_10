@@ -38,15 +38,17 @@
             this.cbxchedocloc2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewdanhsachphongban = new System.Windows.Forms.DataGridView();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MADA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MATRP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENTRUONGPHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.lưu = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Xóa = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewdanhsachphongban)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +56,7 @@
             // btin1
             // 
             this.btin1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btin1.ImageOptions.Image")));
-            this.btin1.Location = new System.Drawing.Point(952, 98);
+            this.btin1.Location = new System.Drawing.Point(1223, 25);
             this.btin1.Name = "btin1";
             this.btin1.Size = new System.Drawing.Size(111, 39);
             this.btin1.TabIndex = 11;
@@ -123,6 +125,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Olive;
             this.label1.Location = new System.Drawing.Point(533, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(373, 32);
@@ -139,8 +142,8 @@
             this.MATRP,
             this.TENTRUONGPHONG,
             this.PHONG,
-            this.Column1,
-            this.Column2});
+            this.lưu,
+            this.Xóa});
             this.dataGridViewdanhsachphongban.Location = new System.Drawing.Point(-1, 175);
             this.dataGridViewdanhsachphongban.Name = "dataGridViewdanhsachphongban";
             this.dataGridViewdanhsachphongban.RowTemplate.Height = 24;
@@ -148,6 +151,36 @@
             this.dataGridViewdanhsachphongban.TabIndex = 8;
             this.dataGridViewdanhsachphongban.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewdanhsachphongban_CellContentClick);
             this.dataGridViewdanhsachphongban.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewdanhsachphongban_DataBindingComplete);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(1223, 98);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(111, 39);
+            this.simpleButton1.TabIndex = 12;
+            this.simpleButton1.Text = "Thoát ";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(912, 98);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(122, 39);
+            this.simpleButton2.TabIndex = 13;
+            this.simpleButton2.Text = "Thêm mới";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
+            this.simpleButton3.Location = new System.Drawing.Point(1069, 98);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(111, 39);
+            this.simpleButton3.TabIndex = 14;
+            this.simpleButton3.Text = "Sửa";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // STT
             // 
@@ -185,29 +218,21 @@
             this.PHONG.HeaderText = "Ngày nhận chức";
             this.PHONG.Name = "PHONG";
             // 
-            // Column1
+            // lưu
             // 
-            this.Column1.HeaderText = "Lưu";
-            this.Column1.Name = "Column1";
-            this.Column1.Text = "Lưu";
-            this.Column1.UseColumnTextForButtonValue = true;
+            this.lưu.HeaderText = "Lưu";
+            this.lưu.Name = "lưu";
+            this.lưu.Text = "Lưu";
+            this.lưu.UseColumnTextForButtonValue = true;
+            this.lưu.Visible = false;
             // 
-            // Column2
+            // Xóa
             // 
-            this.Column2.HeaderText = "Xóa";
-            this.Column2.Name = "Column2";
-            this.Column2.Text = "Xóa";
-            this.Column2.UseColumnTextForButtonValue = true;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(1142, 100);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(111, 39);
-            this.simpleButton1.TabIndex = 12;
-            this.simpleButton1.Text = "Thoát ";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.Xóa.HeaderText = "Xóa";
+            this.Xóa.Name = "Xóa";
+            this.Xóa.Text = "Xóa";
+            this.Xóa.UseColumnTextForButtonValue = true;
+            this.Xóa.Visible = false;
             // 
             // danhsachphongban
             // 
@@ -215,6 +240,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1346, 600);
+            this.Controls.Add(this.simpleButton3);
+            this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btin1);
             this.Controls.Add(this.groupBox1);
@@ -242,14 +269,16 @@
         private System.Windows.Forms.ComboBox cbxchedocloc2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridViewdanhsachphongban;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MADA;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENDA;
         private System.Windows.Forms.DataGridViewTextBoxColumn MATRP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENTRUONGPHONG;
         private System.Windows.Forms.DataGridViewTextBoxColumn PHONG;
-        private System.Windows.Forms.DataGridViewButtonColumn Column1;
-        private System.Windows.Forms.DataGridViewButtonColumn Column2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private System.Windows.Forms.DataGridViewButtonColumn lưu;
+        private System.Windows.Forms.DataGridViewButtonColumn Xóa;
     }
 }

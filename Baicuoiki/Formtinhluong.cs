@@ -13,8 +13,14 @@ namespace Baicuoiki
 {
     public partial class Formtinhluong : Form
     {
+        TabControl c = null;
         public Formtinhluong()
         {
+            InitializeComponent();
+        }
+        public Formtinhluong(TabControl t)
+        {
+            c = t;
             InitializeComponent();
         }
         luongchitiet tbluongchitiet = new luongchitiet();
@@ -45,9 +51,8 @@ namespace Baicuoiki
         }
 
         private void listnhanvien_SelectedIndexChanged(object sender, EventArgs e)
-        { SqlParameter ngay = new SqlParameter("@ngay", dtngay.Value);
-            SqlParameter manv = new SqlParameter("@MANV", tbxmanhanvien.Text);
-            SqlParameter[] d = new SqlParameter[] { ngay, manv };
+        { 
+     
             int index = listnhanvien.SelectedIndex;
             if (index >= 0)
             {
@@ -128,19 +133,34 @@ namespace Baicuoiki
             if (e.RowIndex >= 0 && e.ColumnIndex == 7)
             {
                 tbluongchitiet.Rows[e.RowIndex].Delete();
-                tbluongchitiet.ghi();
-                if (tbluongchitiet.ghi() == true)
+                
+                try
                 {
-                    MessageBox.Show("Xóa thành công!!!");
+                    if (tbluongchitiet.ghi() == true)
+                    {
+                        MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             if (e.RowIndex >= 0 && e.ColumnIndex == 6)
             {
-                tbluongchitiet.ghi();
-                if (tbluongchitiet.ghi() == true)
+                tbluongchitiet.Rows[e.RowIndex].EndEdit();
+                try
                 {
-                    MessageBox.Show("Lưu thành công!!!");
+                    if (tbluongchitiet.ghi() == true)
+                    {
+                        MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 
@@ -165,7 +185,13 @@ namespace Baicuoiki
 
         private void btxóa_Click(object sender, EventArgs e)
         {
-            this.Close();
+            c.TabPages.RemoveByKey("pagetinhluong");
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            Lưu.Visible = true;
+            xóa.Visible = true;
         }
     }
 }

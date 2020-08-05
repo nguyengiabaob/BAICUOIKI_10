@@ -8,17 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Baicuoiki.Bang;
+using System.Data.SqlClient;
 
 
 namespace Baicuoiki
 {
     public partial class Formluongtheothanhtich : Form
     {
+        TabControl c = null;
         Bangnhanvien tbnhanvien = new Bangnhanvien();
         luongtheothanhtich luongtheothanhtich = new luongtheothanhtich();
         DataSet ds = new DataSet();
         public Formluongtheothanhtich()
         {
+            InitializeComponent();
+        }
+        public Formluongtheothanhtich(TabControl t)
+        {
+            c = t;
             InitializeComponent();
         }
         private void addcot()
@@ -64,18 +71,31 @@ namespace Baicuoiki
             if (e.RowIndex >= 0 && e.ColumnIndex == 6)
             {
                 luongtheothanhtich.Rows[e.RowIndex].Delete();
-                luongtheothanhtich.ghi();
-                if (luongtheothanhtich.ghi() == true)
+                try
                 {
-                    MessageBox.Show("Xóa thành công!!!");
+                    if (luongtheothanhtich.ghi() == true)
+                    {
+                        MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             if (e.RowIndex >= 0 && e.ColumnIndex == 5)
             {
-                luongtheothanhtich.ghi();
-                if (luongtheothanhtich.ghi() == true)
+                luongtheothanhtich.Rows[e.RowIndex].EndEdit();
+                try
                 {
-                    MessageBox.Show("Lưu thành công!!!");
+                    if (luongtheothanhtich.ghi() == true)
+                    {
+                        MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -96,6 +116,17 @@ namespace Baicuoiki
             dgvtinhluongtheothanhtich.DataSource = luongtheothanhtich;
 
 
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            c.TabPages.RemoveByKey("pagetinhluongtheothanhtich");
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            lưu.Visible = true;
+            xóa.Visible = true;
         }
     }
 }

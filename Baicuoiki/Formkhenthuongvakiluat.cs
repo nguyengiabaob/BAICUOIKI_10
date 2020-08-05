@@ -13,12 +13,18 @@ namespace Baicuoiki
 {
     public partial class Formkhenthuongvakiluat : Form
     {
+        TabControl c = null;
         Bangnhanvien tbnhanvien =new Bangnhanvien();
         khenthuongvakiluat dskvakluat = new khenthuongvakiluat();
         Phongban tbphongban = new Phongban();
         DataSet ds = new DataSet();
         public Formkhenthuongvakiluat()
         {
+            InitializeComponent();
+        }
+        public Formkhenthuongvakiluat(TabControl t)
+        {
+            c = t;
             InitializeComponent();
         }
 
@@ -189,7 +195,7 @@ namespace Baicuoiki
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            c.TabPages.RemoveByKey("pagekhenthuongvakiluat");
         }
     }
 }

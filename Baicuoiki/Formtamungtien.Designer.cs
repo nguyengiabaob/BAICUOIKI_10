@@ -31,13 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formtamungtien));
             this.label4 = new System.Windows.Forms.Label();
             this.dgvtinhluongtamung = new System.Windows.Forms.DataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoGio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.listnhanvien = new System.Windows.Forms.ListBox();
@@ -49,6 +42,14 @@
             this.dtngaytamung = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoGio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lưu = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Xóa = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtinhluongtamung)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nrudowmluongtamung)).BeginInit();
@@ -75,8 +76,8 @@
             this.TenNV,
             this.Ngay,
             this.SoGio,
-            this.Column1,
-            this.Column7});
+            this.Lưu,
+            this.Xóa});
             this.dgvtinhluongtamung.Location = new System.Drawing.Point(22, 374);
             this.dgvtinhluongtamung.Name = "dgvtinhluongtamung";
             this.dgvtinhluongtamung.RowTemplate.Height = 24;
@@ -85,51 +86,9 @@
             this.dgvtinhluongtamung.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvtinhluongtamung_CellContentClick);
             this.dgvtinhluongtamung.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvtinhluongtamung_DataBindingComplete);
             // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            // 
-            // MANV
-            // 
-            this.MANV.DataPropertyName = "MANV";
-            this.MANV.HeaderText = "Mã nhân viên";
-            this.MANV.Name = "MANV";
-            // 
-            // TenNV
-            // 
-            this.TenNV.DataPropertyName = "HOTENNV";
-            this.TenNV.HeaderText = "Tên nhân viên";
-            this.TenNV.Name = "TenNV";
-            // 
-            // Ngay
-            // 
-            this.Ngay.DataPropertyName = "NGAYUNG";
-            this.Ngay.HeaderText = "Ngày tạm ứng";
-            this.Ngay.Name = "Ngay";
-            // 
-            // SoGio
-            // 
-            this.SoGio.DataPropertyName = "LUONGTAMUNG";
-            this.SoGio.HeaderText = "Số tiền";
-            this.SoGio.Name = "SoGio";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Lưu";
-            this.Column1.Name = "Column1";
-            this.Column1.Text = "Lưu";
-            this.Column1.UseColumnTextForButtonValue = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Xóa";
-            this.Column7.Name = "Column7";
-            this.Column7.Text = "Xóa";
-            this.Column7.UseColumnTextForButtonValue = true;
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.simpleButton2);
             this.groupBox1.Controls.Add(this.simpleButton1);
             this.groupBox1.Controls.Add(this.listnhanvien);
             this.groupBox1.Controls.Add(this.label5);
@@ -153,11 +112,12 @@
             // simpleButton1
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(351, 246);
+            this.simpleButton1.Location = new System.Drawing.Point(393, 244);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(101, 45);
+            this.simpleButton1.Size = new System.Drawing.Size(123, 50);
             this.simpleButton1.TabIndex = 10;
             this.simpleButton1.Text = "Thoát";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // listnhanvien
             // 
@@ -203,9 +163,9 @@
             // btthem
             // 
             this.btthem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btthem.ImageOptions.Image")));
-            this.btthem.Location = new System.Drawing.Point(196, 246);
+            this.btthem.Location = new System.Drawing.Point(70, 244);
             this.btthem.Name = "btthem";
-            this.btthem.Size = new System.Drawing.Size(101, 45);
+            this.btthem.Size = new System.Drawing.Size(132, 50);
             this.btthem.TabIndex = 4;
             this.btthem.Text = "Thêm";
             this.btthem.Click += new System.EventHandler(this.btthem_Click);
@@ -255,6 +215,59 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Ngày tạm ứng";
             // 
+            // simpleButton2
+            // 
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(234, 244);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(137, 50);
+            this.simpleButton2.TabIndex = 16;
+            this.simpleButton2.Text = "Sửa thông tin";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            // 
+            // MANV
+            // 
+            this.MANV.DataPropertyName = "MANV";
+            this.MANV.HeaderText = "Mã nhân viên";
+            this.MANV.Name = "MANV";
+            // 
+            // TenNV
+            // 
+            this.TenNV.DataPropertyName = "HOTENNV";
+            this.TenNV.HeaderText = "Tên nhân viên";
+            this.TenNV.Name = "TenNV";
+            // 
+            // Ngay
+            // 
+            this.Ngay.DataPropertyName = "NGAYUNG";
+            this.Ngay.HeaderText = "Ngày tạm ứng";
+            this.Ngay.Name = "Ngay";
+            // 
+            // SoGio
+            // 
+            this.SoGio.DataPropertyName = "LUONGTAMUNG";
+            this.SoGio.HeaderText = "Số tiền";
+            this.SoGio.Name = "SoGio";
+            // 
+            // Lưu
+            // 
+            this.Lưu.HeaderText = "Lưu";
+            this.Lưu.Name = "Lưu";
+            this.Lưu.Text = "Lưu";
+            this.Lưu.Visible = false;
+            // 
+            // Xóa
+            // 
+            this.Xóa.HeaderText = "Xóa";
+            this.Xóa.Name = "Xóa";
+            this.Xóa.Text = "Xóa";
+            this.Xóa.Visible = false;
+            // 
             // Formtamungtien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -290,13 +303,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbxmanhanvien;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MANV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ngay;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoGio;
-        private System.Windows.Forms.DataGridViewButtonColumn Column1;
-        private System.Windows.Forms.DataGridViewButtonColumn Column7;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private System.Windows.Forms.DataGridViewButtonColumn Lưu;
+        private System.Windows.Forms.DataGridViewButtonColumn Xóa;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }

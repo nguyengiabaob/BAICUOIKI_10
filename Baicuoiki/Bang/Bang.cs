@@ -80,7 +80,7 @@ namespace Baicuoiki.Bang
             {
                 da.Update(this);
                 this.AcceptChanges();
-
+                
             }
             catch (SqlException ex)
             {
