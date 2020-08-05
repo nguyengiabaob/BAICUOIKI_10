@@ -37,7 +37,7 @@ namespace Baicuoiki
             ADDCOT();
             dataGridViewdanhsachkhenvakiluat.AutoGenerateColumns = false;
             dataGridViewdanhsachkhenvakiluat.DataSource = tbkhenthuongvakiluat;
-           
+            tbxlochitiet.Enabled = false;
         } 
         private void cbchedocloc()
         {
@@ -127,6 +127,19 @@ namespace Baicuoiki
                 }
             }
             
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            lưu.Visible = true;
+            xóa.Visible = true;
+        }
+
+        private void cbxchedocloc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cbxchedocloc.SelectedIndex;
+            if (index >= 0)
+                tbxlochitiet.Enabled = true;
         }
     }
     

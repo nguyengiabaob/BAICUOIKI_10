@@ -37,7 +37,6 @@
             this.cbxchedocloc1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewdanhsachduan = new System.Windows.Forms.DataGridView();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MADA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +46,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lưu = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Xóa = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewdanhsachduan)).BeginInit();
             this.SuspendLayout();
@@ -107,6 +107,7 @@
             this.cbxchedocloc1.Name = "cbxchedocloc1";
             this.cbxchedocloc1.Size = new System.Drawing.Size(199, 24);
             this.cbxchedocloc1.TabIndex = 0;
+            this.cbxchedocloc1.SelectedIndexChanged += new System.EventHandler(this.cbxchedocloc1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -139,16 +140,6 @@
             this.dataGridViewdanhsachduan.TabIndex = 10;
             this.dataGridViewdanhsachduan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewdanhsachduan_CellContentClick);
             this.dataGridViewdanhsachduan.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewdanhsachduan_DataBindingComplete);
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(1066, 56);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(144, 54);
-            this.simpleButton1.TabIndex = 13;
-            this.simpleButton1.Text = "Sửa thông tin";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // STT
             // 
@@ -207,6 +198,16 @@
             this.Xóa.Text = "Xóa";
             this.Xóa.UseColumnTextForButtonValue = true;
             this.Xóa.Visible = false;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(1066, 56);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(144, 54);
+            this.simpleButton1.TabIndex = 13;
+            this.simpleButton1.Text = "Sửa thông tin";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // formdanhsachphancongdeancs
             // 

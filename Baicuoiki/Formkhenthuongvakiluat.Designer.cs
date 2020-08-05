@@ -191,6 +191,7 @@
             // 
             this.tbxchucvuthuongkiluat.Location = new System.Drawing.Point(186, 180);
             this.tbxchucvuthuongkiluat.Name = "tbxchucvuthuongkiluat";
+            this.tbxchucvuthuongkiluat.ReadOnly = true;
             this.tbxchucvuthuongkiluat.Size = new System.Drawing.Size(275, 27);
             this.tbxchucvuthuongkiluat.TabIndex = 5;
             // 
@@ -198,6 +199,7 @@
             // 
             this.tbxtenphong.Location = new System.Drawing.Point(602, 52);
             this.tbxtenphong.Name = "tbxtenphong";
+            this.tbxtenphong.ReadOnly = true;
             this.tbxtenphong.Size = new System.Drawing.Size(251, 27);
             this.tbxtenphong.TabIndex = 4;
             // 
@@ -205,6 +207,7 @@
             // 
             this.tbxmanvthuongkiluat.Location = new System.Drawing.Point(186, 54);
             this.tbxmanvthuongkiluat.Name = "tbxmanvthuongkiluat";
+            this.tbxmanvthuongkiluat.ReadOnly = true;
             this.tbxmanvthuongkiluat.Size = new System.Drawing.Size(275, 27);
             this.tbxmanvthuongkiluat.TabIndex = 3;
             // 
@@ -240,7 +243,7 @@
             this.btxemdanhsach.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btxemdanhsach.ImageOptions.Image")));
             this.btxemdanhsach.Location = new System.Drawing.Point(404, 398);
             this.btxemdanhsach.Name = "btxemdanhsach";
-            this.btxemdanhsach.Size = new System.Drawing.Size(134, 53);
+            this.btxemdanhsach.Size = new System.Drawing.Size(146, 53);
             this.btxemdanhsach.TabIndex = 4;
             this.btxemdanhsach.Text = "Xem danh sách";
             this.btxemdanhsach.Click += new System.EventHandler(this.btxemdanhsach_Click);

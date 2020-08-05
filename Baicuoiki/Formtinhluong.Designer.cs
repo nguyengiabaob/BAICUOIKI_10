@@ -51,8 +51,6 @@
             this.btxóa = new DevExpress.XtraEditors.SimpleButton();
             this.btthem = new DevExpress.XtraEditors.SimpleButton();
             this.dgvtinhluong = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +59,8 @@
             this.SoGio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lưu = new System.Windows.Forms.DataGridViewButtonColumn();
             this.xóa = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownsogio)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -125,6 +125,7 @@
             this.tbxmanhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxmanhanvien.Location = new System.Drawing.Point(163, 43);
             this.tbxmanhanvien.Name = "tbxmanhanvien";
+            this.tbxmanhanvien.ReadOnly = true;
             this.tbxmanhanvien.Size = new System.Drawing.Size(200, 24);
             this.tbxmanhanvien.TabIndex = 21;
             // 
@@ -165,6 +166,7 @@
             this.tbxchucvu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxchucvu.Location = new System.Drawing.Point(163, 113);
             this.tbxchucvu.Name = "tbxchucvu";
+            this.tbxchucvu.ReadOnly = true;
             this.tbxchucvu.Size = new System.Drawing.Size(200, 24);
             this.tbxchucvu.TabIndex = 17;
             // 
@@ -184,6 +186,7 @@
             this.tbxluongtamung.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxluongtamung.Location = new System.Drawing.Point(611, 179);
             this.tbxluongtamung.Name = "tbxluongtamung";
+            this.tbxluongtamung.ReadOnly = true;
             this.tbxluongtamung.Size = new System.Drawing.Size(212, 24);
             this.tbxluongtamung.TabIndex = 13;
             // 
@@ -203,6 +206,7 @@
             this.tbxluongtheothanhtich.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxluongtheothanhtich.Location = new System.Drawing.Point(611, 114);
             this.tbxluongtheothanhtich.Name = "tbxluongtheothanhtich";
+            this.tbxluongtheothanhtich.ReadOnly = true;
             this.tbxluongtheothanhtich.Size = new System.Drawing.Size(211, 24);
             this.tbxluongtheothanhtich.TabIndex = 11;
             // 
@@ -222,6 +226,7 @@
             this.tbxluongmacdinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxluongmacdinh.Location = new System.Drawing.Point(611, 39);
             this.tbxluongmacdinh.Name = "tbxluongmacdinh";
+            this.tbxluongmacdinh.ReadOnly = true;
             this.tbxluongmacdinh.Size = new System.Drawing.Size(212, 24);
             this.tbxluongmacdinh.TabIndex = 9;
             // 
@@ -253,6 +258,7 @@
             this.tbxtongluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxtongluong.Location = new System.Drawing.Point(188, 32);
             this.tbxtongluong.Name = "tbxtongluong";
+            this.tbxtongluong.ReadOnly = true;
             this.tbxtongluong.Size = new System.Drawing.Size(368, 24);
             this.tbxtongluong.TabIndex = 17;
             // 
@@ -306,27 +312,6 @@
             this.dgvtinhluong.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvtinhluongtheothanhtich_CellContentClick);
             this.dgvtinhluong.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvtinhluong_DataBindingComplete);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Green;
-            this.label6.Location = new System.Drawing.Point(39, 435);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(158, 20);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Chi tiết tiền lương";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(956, 351);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(139, 50);
-            this.simpleButton2.TabIndex = 15;
-            this.simpleButton2.Text = "Sửa thông tin";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
             // STT
             // 
             this.STT.HeaderText = "STT";
@@ -377,6 +362,27 @@
             this.xóa.Text = "Xóa";
             this.xóa.UseColumnTextForButtonValue = true;
             this.xóa.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Green;
+            this.label6.Location = new System.Drawing.Point(39, 435);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(158, 20);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Chi tiết tiền lương";
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(956, 351);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(139, 50);
+            this.simpleButton2.TabIndex = 15;
+            this.simpleButton2.Text = "Sửa thông tin";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // Formtinhluong
             // 

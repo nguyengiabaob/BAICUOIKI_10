@@ -30,6 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formtiendodean));
             this.dataGridViewtiendodean = new System.Windows.Forms.DataGridView();
+            this.MADEAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENTRUONGPHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Lưu = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -40,14 +48,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbxchedocloc2 = new System.Windows.Forms.ComboBox();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.MADEAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENTRUONGPHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Lưu = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewtiendodean)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +71,75 @@
             this.dataGridViewtiendodean.TabIndex = 0;
             this.dataGridViewtiendodean.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewtiendodean_CellContentClick);
             // 
+            // MADEAN
+            // 
+            this.MADEAN.DataPropertyName = "MADUAN";
+            this.MADEAN.Frozen = true;
+            this.MADEAN.HeaderText = "Mã đề án";
+            this.MADEAN.Name = "MADEAN";
+            // 
+            // TENDA
+            // 
+            this.TENDA.DataPropertyName = "TENDA";
+            this.TENDA.Frozen = true;
+            this.TENDA.HeaderText = "Tên đề án";
+            this.TENDA.Name = "TENDA";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "TENPHONG";
+            this.Column3.Frozen = true;
+            this.Column3.HeaderText = "Phòng thực hiện";
+            this.Column3.Name = "Column3";
+            // 
+            // TENTRUONGPHONG
+            // 
+            this.TENTRUONGPHONG.DataPropertyName = "TENTRUONGPHONG";
+            this.TENTRUONGPHONG.Frozen = true;
+            this.TENTRUONGPHONG.HeaderText = "Trưởng phòng";
+            this.TENTRUONGPHONG.Name = "TENTRUONGPHONG";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "GIAIDOAN1";
+            this.Column2.FalseValue = "0";
+            this.Column2.HeaderText = "Giai đoạn bắt đầu ";
+            this.Column2.Name = "Column2";
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column2.ToolTipText = "Đây là giai đoạn dự án cần hoàn thành các bước chuẩn bị để bước sang giai đoan th" +
+    "ực hiện";
+            this.Column2.TrueValue = "1";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "GIAIDOAN2";
+            this.Column4.FalseValue = "0";
+            this.Column4.HeaderText = "Giai đoạn thực hiện";
+            this.Column4.Name = "Column4";
+            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column4.ToolTipText = "Giai đoạn thực hiện các yêu cầu của khách hàng đề hoàn thành sản phẩm ở mức sơ kh" +
+    "ai";
+            this.Column4.TrueValue = "1";
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "GIAIDOAN3";
+            this.Column8.FalseValue = "0";
+            this.Column8.HeaderText = "Giai đoạn kết thúc";
+            this.Column8.Name = "Column8";
+            this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column8.ToolTipText = "Giai đoạn kiểm tra lại sản phẩm ở mức sơ khai còn thiếu sót những gì và bổ sung n" +
+    "ó để tạo ra sản phẩm hoàn chỉnh";
+            this.Column8.TrueValue = "1";
+            // 
+            // Lưu
+            // 
+            this.Lưu.HeaderText = "Lưu";
+            this.Lưu.Name = "Lưu";
+            this.Lưu.Text = "Lưu";
+            this.Lưu.UseColumnTextForButtonValue = true;
+            this.Lưu.Visible = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -85,6 +154,7 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -157,6 +227,7 @@
             this.cbxchedocloc2.Name = "cbxchedocloc2";
             this.cbxchedocloc2.Size = new System.Drawing.Size(199, 24);
             this.cbxchedocloc2.TabIndex = 0;
+            this.cbxchedocloc2.SelectedIndexChanged += new System.EventHandler(this.cbxchedocloc2_SelectedIndexChanged);
             // 
             // simpleButton2
             // 
@@ -167,75 +238,6 @@
             this.simpleButton2.TabIndex = 12;
             this.simpleButton2.Text = "Sửa thông tin";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
-            // MADEAN
-            // 
-            this.MADEAN.DataPropertyName = "MADUAN";
-            this.MADEAN.Frozen = true;
-            this.MADEAN.HeaderText = "Mã đề án";
-            this.MADEAN.Name = "MADEAN";
-            // 
-            // TENDA
-            // 
-            this.TENDA.DataPropertyName = "TENDA";
-            this.TENDA.Frozen = true;
-            this.TENDA.HeaderText = "Tên đề án";
-            this.TENDA.Name = "TENDA";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "TENPHONG";
-            this.Column3.Frozen = true;
-            this.Column3.HeaderText = "Phòng thực hiện";
-            this.Column3.Name = "Column3";
-            // 
-            // TENTRUONGPHONG
-            // 
-            this.TENTRUONGPHONG.DataPropertyName = "TENTRUONGPHONG";
-            this.TENTRUONGPHONG.Frozen = true;
-            this.TENTRUONGPHONG.HeaderText = "Trưởng phòng";
-            this.TENTRUONGPHONG.Name = "TENTRUONGPHONG";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "GIAIDOAN1";
-            this.Column2.FalseValue = "0";
-            this.Column2.HeaderText = "Giai đoạn bắt đầu ";
-            this.Column2.Name = "Column2";
-            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column2.ToolTipText = "Đây là giai đoạn dự án cần hoàn thành các bước chuẩn bị để bước sang giai đoan th" +
-    "ực hiện";
-            this.Column2.TrueValue = "1";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "GIAIDOAN2";
-            this.Column4.FalseValue = "0";
-            this.Column4.HeaderText = "Giai đoạn thực hiện";
-            this.Column4.Name = "Column4";
-            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column4.ToolTipText = "Giai đoạn thực hiện các yêu cầu của khách hàng đề hoàn thành sản phẩm ở mức sơ kh" +
-    "ai";
-            this.Column4.TrueValue = "1";
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "GIAIDOAN3";
-            this.Column8.FalseValue = "0";
-            this.Column8.HeaderText = "Giai đoạn kết thúc";
-            this.Column8.Name = "Column8";
-            this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column8.ToolTipText = "Giai đoạn kiểm tra lại sản phẩm ở mức sơ khai còn thiếu sót những gì và bổ sung n" +
-    "ó để tạo ra sản phẩm hoàn chỉnh";
-            this.Column8.TrueValue = "1";
-            // 
-            // Lưu
-            // 
-            this.Lưu.HeaderText = "Lưu";
-            this.Lưu.Name = "Lưu";
-            this.Lưu.Text = "Lưu";
-            this.Lưu.UseColumnTextForButtonValue = true;
-            this.Lưu.Visible = false;
             // 
             // formtiendodean
             // 

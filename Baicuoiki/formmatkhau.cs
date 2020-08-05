@@ -20,13 +20,22 @@ namespace Baicuoiki
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            DataRow[] r = tk.Select("MANV='" + tbxmanhanvien.Text + "'");
-            if (r.Count() > 0)
+            int t = 0;
+            if(tbxmanhanvien.Text=="")
             {
-                MessageBox.Show("Mật khẩu là:" + r[0]["MATKHAU"].ToString() + "");
+                t = 1;
+                MessageBox.Show("Thông tin yêu cầu chưa nhập đầy đủ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-                MessageBox.Show("Tài khoản không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            if (t == 0)
+            {
+                DataRow[] r = tk.Select("MANV='" + tbxmanhanvien.Text + "'");
+                if (r.Count() > 0)
+                {
+                    MessageBox.Show("Mật khẩu là:" + r[0]["MATKHAU"].ToString() + "");
+                }
+                else
+                    MessageBox.Show("Tài khoản không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
     }
 }

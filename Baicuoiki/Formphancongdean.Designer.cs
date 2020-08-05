@@ -121,6 +121,7 @@
             this.tbxdiadiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxdiadiem.Location = new System.Drawing.Point(96, 184);
             this.tbxdiadiem.Name = "tbxdiadiem";
+            this.tbxdiadiem.ReadOnly = true;
             this.tbxdiadiem.Size = new System.Drawing.Size(175, 24);
             this.tbxdiadiem.TabIndex = 28;
             // 
@@ -129,6 +130,7 @@
             this.tbxmadean.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxmadean.Location = new System.Drawing.Point(96, 46);
             this.tbxmadean.Name = "tbxmadean";
+            this.tbxmadean.ReadOnly = true;
             this.tbxmadean.Size = new System.Drawing.Size(175, 24);
             this.tbxmadean.TabIndex = 27;
             // 
@@ -137,6 +139,7 @@
             this.tbxttienloinhuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxttienloinhuan.Location = new System.Drawing.Point(418, 184);
             this.tbxttienloinhuan.Name = "tbxttienloinhuan";
+            this.tbxttienloinhuan.ReadOnly = true;
             this.tbxttienloinhuan.Size = new System.Drawing.Size(243, 24);
             this.tbxttienloinhuan.TabIndex = 26;
             // 
@@ -241,6 +244,7 @@
             this.tbxtruongphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxtruongphong.Location = new System.Drawing.Point(108, 205);
             this.tbxtruongphong.Name = "tbxtruongphong";
+            this.tbxtruongphong.ReadOnly = true;
             this.tbxtruongphong.Size = new System.Drawing.Size(191, 24);
             this.tbxtruongphong.TabIndex = 28;
             // 
@@ -249,6 +253,7 @@
             this.tbxmaphong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxmaphong.Location = new System.Drawing.Point(108, 48);
             this.tbxmaphong.Name = "tbxmaphong";
+            this.tbxmaphong.ReadOnly = true;
             this.tbxmaphong.Size = new System.Drawing.Size(191, 24);
             this.tbxmaphong.TabIndex = 27;
             // 
@@ -257,6 +262,7 @@
             this.tbxmatrhp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxmatrhp.Location = new System.Drawing.Point(452, 204);
             this.tbxmatrhp.Name = "tbxmatrhp";
+            this.tbxmatrhp.ReadOnly = true;
             this.tbxmatrhp.Size = new System.Drawing.Size(199, 24);
             this.tbxmatrhp.TabIndex = 26;
             // 

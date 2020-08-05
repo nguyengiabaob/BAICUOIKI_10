@@ -58,12 +58,28 @@ namespace Baicuoiki
 
         private void btthem_Click(object sender, EventArgs e)
         {
-            DataRow r = luongtheothanhtich.NewRow();
-            r["MANV"] = tbxmanhanvien.Text;
-            r["NGAYTHUONG"] = dtngaytamung.Text;
-            r["LUONGTHEOTHANHTICH"] = nrudowmluongtheothanhtich.Value;
-            luongtheothanhtich.Rows.Add(r);
-            luongtheothanhtich.ghi();
+            int T = 0;
+            if (tbxthanhtich.Text==""||nrudowmluongtheothanhtich.Value==0)
+            {
+                T = 1;
+                MessageBox.Show("Thông tin chưa điền đầy đủ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (T == 0)
+            {
+                DataRow r = luongtheothanhtich.NewRow();
+                r["MANV"] = tbxmanhanvien.Text;
+                r["NGAYTHUONG"] = dtngaytamung.Text;
+                r["LUONGTHEOTHANHTICH"] = nrudowmluongtheothanhtich.Value;
+                luongtheothanhtich.Rows.Add(r);
+                try
+                {
+                    luongtheothanhtich.ghi();
+                }
+                catch(SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void dgvtinhluongtheothanhtich_CellContentClick(object sender, DataGridViewCellEventArgs e)

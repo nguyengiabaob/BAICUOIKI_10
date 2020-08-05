@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Baicuoiki.Bang;
+using System.Data.SqlClient;
 
 
 namespace Baicuoiki
@@ -25,11 +26,11 @@ namespace Baicuoiki
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             
-            if (tbxmanhanvien.Text==""||tbxhoten.Text==""||tbxmatkhau.Text==""||tbxnhaplaimatkhau.Text==""|tbxtendangnhap.Text=="")
+            if (tbxmanhanvien.Text==""||tbxhoten.Text==""||tbxtendangnhap.Text=="")
             {
                 c = 1;
                 MessageBox.Show("Thông tin yêu cầu chưa nhập đầy đủ","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
+                
             }
            
             //DataRow[] u = tbnhanvien.Select("MANV='" + tbxmanhanvien.Text + "'");
@@ -47,33 +48,61 @@ namespace Baicuoiki
                 r["MANV"] = tbxmanhanvien.Text;
                 r["TENNV"] = tbxhoten.Text;
                 r["USERNAME"] = tbxtendangnhap.Text;
-                checkmk(a);
+                r["MAPHANQUYEN"] = DBNull.Value;
+                errorProvider1.SetError(tbxmatkhau, "");
+                errorProvider1.SetError(tbxnhaplaimatkhau, "");
+                if (tbxmatkhau.Text.Length < 8 || (tbxmatkhau.Text.Any(char.IsDigit)==false) || (tbxmatkhau.Text.Any(char.IsLower) == false) || (tbxmatkhau.Text.Any(char.IsUpper) == false))
+                {
+                    errorProvider1.SetError(tbxmatkhau, "Mật khẩu mới gồm 8 kí tự,gồm chữ số," + "in hoa in thường");
+                    a = 1;
+                    return;
+                }
+                if (tbxmatkhau.Text != tbxnhaplaimatkhau.Text)
+                {
+                    errorProvider1.SetError(tbxnhaplaimatkhau, "Mật khẩu nhập lại không trùng");
+                    a = 2;
+                    return;
+
+                }
                 if (a == 0)
+                {
                     r["MATKHAU"] = tbxmatkhau.Text;
-                tk.Rows.Add(r);
-                tk.ghi();
+                    tk.Rows.Add(r);
+                    try
+                    {
+                        
+                        if(tk.ghi())
+                        {
+                            MessageBox.Show("Chúc mừng bạn đăng ký thành công","Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
-        private void checkmk(int t)
-        {
-            t = 0;
-            dxErrorProvider1.SetError(tbxmatkhau, "");
-            dxErrorProvider1.SetError(tbxnhaplaimatkhau, "");
-            if (tbxmatkhau.Text.Length < 8 || (tbxmatkhau.Text.Any(char.IsDigit)) || (tbxmatkhau.Text.Any(char.IsLower)) || (tbxmatkhau.Text.Any(char.IsUpper)))
-            {
-                dxErrorProvider1.SetError(tbxmatkhau, "Mật khẩu mới gồm 8 kí tự,gồm chữ số," + "in hoa in thường");
-                t = 1;
-                return;
-            }
-            if (tbxmatkhau.Text != tbxnhaplaimatkhau.Text)
-            {
-                dxErrorProvider1.SetError(tbxnhaplaimatkhau, "Mật khẩu nhập lại không trủng");
-                t = 2;
-                return;
+        //private int checkmk(int t)
+        //{
+        //    t = 0;
+        //    dxErrorProvider1.SetError(tbxmatkhau,"");
+        //    dxErrorProvider1.SetError(tbxnhaplaimatkhau,"");
+        //    if (tbxmatkhau.Text.Length < 8 || (tbxmatkhau.Text.Any(char.IsDigit)) || (tbxmatkhau.Text.Any(char.IsLower)) || (tbxmatkhau.Text.Any(char.IsUpper)))
+        //    {
+        //        dxErrorProvider1.SetError(tbxmatkhau, "Mật khẩu mới gồm 8 kí tự,gồm chữ số," + "in hoa in thường");
+        //        t = 1;
+                
+        //    }
+        //    if (tbxmatkhau.Text != tbxnhaplaimatkhau.Text)
+        //    {
+        //        dxErrorProvider1.SetError(tbxnhaplaimatkhau, "Mật khẩu nhập lại không trùng");
+        //        t = 2;
+              
 
-            }
-
-        }
+        //    }
+        //    return t;
+        //}
         private bool check()
         {
             bool b = true;
@@ -83,9 +112,14 @@ namespace Baicuoiki
             {
                 
                 MessageBox.Show("Mã nhân viên hoặc họ tên không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                b= false;
             }
             return b;
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

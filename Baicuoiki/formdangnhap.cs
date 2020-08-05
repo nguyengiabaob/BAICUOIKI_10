@@ -109,6 +109,7 @@ namespace Baicuoiki
             {
                 f.Text = "Xin Chào " + r[0]["TENNV"].ToString();
                 f.enablebutton((int)r[0]["MAPHANQUYEN"]);
+                Bang.Bang.manhanvien = r[0]["MANV"].ToString();
                 this.Hide();
               
             }

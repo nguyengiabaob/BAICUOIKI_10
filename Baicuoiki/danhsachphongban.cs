@@ -48,7 +48,7 @@ namespace Baicuoiki
             addcot();
             dataGridViewdanhsachphongban.AutoGenerateColumns = false;
             dataGridViewdanhsachphongban.DataSource = phongban;
-
+            tbxlochitiet2.Enabled = false;
 
         }
         private void loadcbchedoloc()
@@ -159,6 +159,15 @@ namespace Baicuoiki
         {
             lưu.Visible = true;
             Xóa.Visible = true;
+        }
+
+        private void cbxchedocloc2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index =cbxchedocloc2.SelectedIndex;
+            if (index >= 0)
+            {
+                tbxlochitiet2.Enabled = true;
+            }
         }
     }
 }

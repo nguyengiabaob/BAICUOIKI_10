@@ -97,6 +97,7 @@ namespace Baicuoiki
             dataGridViewtiendodean.DataSource = tiendodean;
             loadcbchedoloc();
             btiendodean = this.BindingContext[tiendodean];
+            tbxlochitiet2.Enabled = false;
         }
 
 
@@ -165,6 +166,15 @@ namespace Baicuoiki
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             Lưu.Visible = true;
+        }
+
+        private void cbxchedocloc2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cbxchedocloc2.SelectedIndex;
+            if(index>=0)
+            {
+                tbxlochitiet2.Enabled = true;
+            }
         }
     } 
 }

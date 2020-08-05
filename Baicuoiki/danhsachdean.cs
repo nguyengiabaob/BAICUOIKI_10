@@ -33,6 +33,7 @@ namespace Baicuoiki
             dataGridViewdanhsachdean.AutoGenerateColumns = false;
             dataGridViewdanhsachdean.DataSource = tbduan;
             bduan = this.BindingContext[tbduan];
+            cbxchedocloc1.Enabled = false;
         }
 
         private void dataGridViewdanhsachdean_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -129,6 +130,15 @@ namespace Baicuoiki
         {
             Lưu.Visible = true;
             Xóa.Visible = true;
+        }
+
+        private void cbxchedocloc1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cbxchedocloc1.SelectedIndex;
+            if (index >= 0)
+            {
+                tbxlochitiet1.Enabled = true;
+            }
         }
     }
 }

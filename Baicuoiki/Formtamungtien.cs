@@ -79,13 +79,29 @@ namespace Baicuoiki
 
         private void btthem_Click(object sender, EventArgs e)
         {
-            DataRow r = tbluongtamung.NewRow();
-            r["MANV"] = tbxmanhanvien.Text;
-            r["NGAYUNG"] = dtngaytamung.Text;
-            r["LUONGTAMUNG"] = nrudowmluongtamung.Value;
-            tbluongtamung.Rows.Add(r);
-            tbluongtamung.ghi();
+            int t = 0;
+            if(nrudowmluongtamung.Value==0)
+            {
+                t = 1;
+                MessageBox.Show("Thông tin chưa điền đầy đủ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (t == 0)
+            {
+                DataRow r = tbluongtamung.NewRow();
+                r["MANV"] = tbxmanhanvien.Text;
+                r["NGAYUNG"] = dtngaytamung.Text;
+                r["LUONGTUNG"] = nrudowmluongtamung.Value;
+                tbluongtamung.Rows.Add(r);
+                try
+                {
+                    tbluongtamung.ghi();
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
+            }
 
         }
 

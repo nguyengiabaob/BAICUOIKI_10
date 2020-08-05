@@ -152,6 +152,7 @@
             this.tbxchucvu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxchucvu.Location = new System.Drawing.Point(172, 144);
             this.tbxchucvu.Name = "tbxchucvu";
+            this.tbxchucvu.ReadOnly = true;
             this.tbxchucvu.Size = new System.Drawing.Size(200, 24);
             this.tbxchucvu.TabIndex = 25;
             // 
@@ -160,6 +161,7 @@
             this.tbxmanhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxmanhanvien.Location = new System.Drawing.Point(172, 34);
             this.tbxmanhanvien.Name = "tbxmanhanvien";
+            this.tbxmanhanvien.ReadOnly = true;
             this.tbxmanhanvien.Size = new System.Drawing.Size(200, 24);
             this.tbxmanhanvien.TabIndex = 24;
             // 

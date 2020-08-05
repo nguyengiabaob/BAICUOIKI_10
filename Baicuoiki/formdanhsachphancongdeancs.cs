@@ -32,7 +32,7 @@ namespace Baicuoiki
             addcot3();
             dataGridViewdanhsachduan.AutoGenerateColumns = false;
             dataGridViewdanhsachduan.DataSource = pcdean;
-
+            tbxlochitiet1.Enabled = false;
         }
         private void loadcbchedoloc()
         {
@@ -150,6 +150,15 @@ namespace Baicuoiki
                     MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
+            }
+        }
+
+        private void cbxchedocloc1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cbxchedocloc1.SelectedIndex;
+            if(index>=0)
+            {
+                tbxlochitiet1.Enabled = true;
             }
         }
     }

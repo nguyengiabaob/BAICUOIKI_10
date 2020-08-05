@@ -14,6 +14,7 @@ namespace Baicuoiki
 {
     public partial class Formcapnhatnhanvien : Form
     {
+        bool capnhat = true;
         Bitmap BITMAP;
         TabControl c = null;
         public Formcapnhatnhanvien()
@@ -65,7 +66,22 @@ namespace Baicuoiki
             
             LBTRANG.Text = r.ToString();
         }
-
+        private void enablebuton(bool capnhat)
+        {
+            tbxchucvu.Enabled = capnhat;
+            tbxmanhanvien.Enabled = capnhat;
+            tbxthoihanhopdong.Enabled = capnhat;
+            tbxluong.Enabled = capnhat;
+            tbxhoten.Enabled = capnhat;
+            datetpickerngaysinh.Enabled = capnhat;
+            tbxdiachi.Enabled = capnhat;
+            radioButtonnam.Enabled = capnhat;
+            radioButtonnu.Enabled = capnhat;
+            cbxtenphong.Enabled = capnhat;
+            btchonhinh.Enabled = capnhat;
+            btluu.Enabled = capnhat;
+            bthuy.Enabled = capnhat;
+        }
         private void Formcapnhatnhanvien_Load(object sender, EventArgs e)
         {
             loadcbtenphong();
@@ -79,19 +95,13 @@ namespace Baicuoiki
             tbxchucvu.DataBindings.Add("text", tbnhanvien, "CHUCVU", true);
             tbxthoihanhopdong.DataBindings.Add("text", tbnhanvien, "THOIHANHOPDONG", true);
             pictureavatar.DataBindings.Add("IMAGE", tbnhanvien, "HINH", true);
-            //radioButtonnam.DataBindings.Add("Checked", tbnhanvien, "PHAI", true);
-            //radioButtonnu.DataBindings.Add("Checked", tbnhanvien, "PHAI", true);
+            
             loadradio();
             nhanvien = BindingContext[tbnhanvien];
             LBTONGSO.Text = tbnhanvien.getcount.ToString();
             nhanvien.PositionChanged += new EventHandler(nhanvien_PositonChanged);
-            //groupBox1.Enabled = false;
-            //btdau.Enabled = true;
-            //bttruoc.Enabled = true;
-            //btcuoi.Enabled = true; 
-            //btsau.Enabled = true;
-            //btluu.Enabled = false;
-            //bthuy.Enabled = false;
+            capnhat = false;
+            enablebuton(capnhat);
     }
         private void loadcbtenphong()
         {
@@ -153,6 +163,8 @@ namespace Baicuoiki
         {
             btluu.Enabled = true;
             btsua.Enabled = false;
+            btxoa.Enabled = false;
+            bthuy.Enabled = true;
             tbxhoten.Text = "";
             tbxdiachi.Text = "";
             tbxluong.Text = "";
@@ -195,6 +207,8 @@ namespace Baicuoiki
             {
                 MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            capnhat = false;
+            enablebuton(capnhat);
         }
 
         private void btxoa_Click(object sender, EventArgs e)
@@ -220,7 +234,10 @@ namespace Baicuoiki
         {
             btthemmoi.Enabled = false;
             btluu.Enabled = true;
-
+            bthuy.Enabled = true;
+            btxoa.Enabled = true;
+            capnhat = true;
+            enablebuton(capnhat);
 
         }
 
@@ -229,9 +246,10 @@ namespace Baicuoiki
             nhanvien.CancelCurrentEdit();
             tbnhanvien.RejectChanges();
             nhanvien.Position = nhanvien.Position;
-            bthuy.Enabled = false;
-            btluu.Enabled = false;
-
+            capnhat = false;
+            enablebuton(capnhat);
+            btsua.Enabled = true;
+            btxoa.Enabled = true;
 
         }
 

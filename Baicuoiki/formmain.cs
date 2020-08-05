@@ -13,7 +13,7 @@ namespace Baicuoiki
 {
     public partial class formmain : Form
     {
-       
+    
         public formmain()
         {
             InitializeComponent();

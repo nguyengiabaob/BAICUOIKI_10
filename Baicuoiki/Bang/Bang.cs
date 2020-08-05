@@ -11,8 +11,9 @@ namespace Baicuoiki.Bang
     class Bang : DataTable
     {
 
-        
+
         #region Fields
+        public static string manhanvien="";
         public static string cnnstr = "Data Source=DESKTOP-T11FG2C\\SQLEXPRESS;Initial Catalog=QLcongtynoithat;Integrated Security=True";
         public static SqlConnection cnn;
         private SqlDataAdapter da = new SqlDataAdapter();

@@ -203,6 +203,7 @@
             this.cbxchedocloc.Name = "cbxchedocloc";
             this.cbxchedocloc.Size = new System.Drawing.Size(199, 26);
             this.cbxchedocloc.TabIndex = 0;
+            this.cbxchedocloc.SelectedIndexChanged += new System.EventHandler(this.cbxchedocloc_SelectedIndexChanged);
             // 
             // btin
             // 

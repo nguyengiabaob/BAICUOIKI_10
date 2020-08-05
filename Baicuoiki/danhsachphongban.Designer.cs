@@ -38,9 +38,6 @@
             this.cbxchedocloc2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewdanhsachphongban = new System.Windows.Forms.DataGridView();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MADA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +46,9 @@
             this.PHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lưu = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Xóa = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewdanhsachphongban)).BeginInit();
             this.SuspendLayout();
@@ -119,6 +119,7 @@
             this.cbxchedocloc2.Name = "cbxchedocloc2";
             this.cbxchedocloc2.Size = new System.Drawing.Size(199, 24);
             this.cbxchedocloc2.TabIndex = 0;
+            this.cbxchedocloc2.SelectedIndexChanged += new System.EventHandler(this.cbxchedocloc2_SelectedIndexChanged);
             this.cbxchedocloc2.SelectionChangeCommitted += new System.EventHandler(this.cbxchedocloc2_SelectionChangeCommitted);
             // 
             // label1
@@ -151,36 +152,6 @@
             this.dataGridViewdanhsachphongban.TabIndex = 8;
             this.dataGridViewdanhsachphongban.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewdanhsachphongban_CellContentClick);
             this.dataGridViewdanhsachphongban.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewdanhsachphongban_DataBindingComplete);
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(1223, 98);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(111, 39);
-            this.simpleButton1.TabIndex = 12;
-            this.simpleButton1.Text = "Thoát ";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(912, 98);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(122, 39);
-            this.simpleButton2.TabIndex = 13;
-            this.simpleButton2.Text = "Thêm mới";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.simpleButton3.Location = new System.Drawing.Point(1069, 98);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(111, 39);
-            this.simpleButton3.TabIndex = 14;
-            this.simpleButton3.Text = "Sửa";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // STT
             // 
@@ -233,6 +204,36 @@
             this.Xóa.Text = "Xóa";
             this.Xóa.UseColumnTextForButtonValue = true;
             this.Xóa.Visible = false;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(1223, 98);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(111, 39);
+            this.simpleButton1.TabIndex = 12;
+            this.simpleButton1.Text = "Thoát ";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(912, 98);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(122, 39);
+            this.simpleButton2.TabIndex = 13;
+            this.simpleButton2.Text = "Thêm mới";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
+            this.simpleButton3.Location = new System.Drawing.Point(1069, 98);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(111, 39);
+            this.simpleButton3.TabIndex = 14;
+            this.simpleButton3.Text = "Sửa";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // danhsachphongban
             // 

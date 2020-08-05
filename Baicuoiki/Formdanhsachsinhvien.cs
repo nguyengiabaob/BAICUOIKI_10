@@ -112,7 +112,7 @@ namespace Baicuoiki
             addcolumn();
             dataGridViewdanhsachnhanvien.AutoGenerateColumns=false;
             dataGridViewdanhsachnhanvien.DataSource = tbnhanvien;
-            
+            tbxlochitiet.Enabled = false;
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -166,6 +166,15 @@ namespace Baicuoiki
         private void simpleButton1_Click_1(object sender, EventArgs e)
         {
             c.TabPages.RemoveByKey("pagedanhsachnhanvien");
+        }
+
+        private void cbxchedocloc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cbxchedocloc.SelectedIndex;
+            if(index>=0)
+            {
+                tbxlochitiet.Enabled = true;
+            }
         }
     }
 }

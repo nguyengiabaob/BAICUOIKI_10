@@ -32,6 +32,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dgvtinhluongtamung = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.listnhanvien = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
             this.dtngaytamung = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -109,6 +109,16 @@
             this.groupBox1.Text = "Thông tin tạm ứng tiền";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // simpleButton2
+            // 
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(234, 244);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(137, 50);
+            this.simpleButton2.TabIndex = 16;
+            this.simpleButton2.Text = "Sửa thông tin";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
             // simpleButton1
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
@@ -146,6 +156,7 @@
             this.tbxmanhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxmanhanvien.Location = new System.Drawing.Point(196, 102);
             this.tbxmanhanvien.Name = "tbxmanhanvien";
+            this.tbxmanhanvien.ReadOnly = true;
             this.tbxmanhanvien.Size = new System.Drawing.Size(200, 24);
             this.tbxmanhanvien.TabIndex = 8;
             // 
@@ -186,6 +197,7 @@
             // dtngaytamung
             // 
             this.dtngaytamung.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtngaytamung.Enabled = false;
             this.dtngaytamung.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtngaytamung.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtngaytamung.Location = new System.Drawing.Point(196, 43);
@@ -215,16 +227,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Ngày tạm ứng";
             // 
-            // simpleButton2
-            // 
-            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(234, 244);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(137, 50);
-            this.simpleButton2.TabIndex = 16;
-            this.simpleButton2.Text = "Sửa thông tin";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
             // STT
             // 
             this.STT.HeaderText = "STT";
@@ -250,7 +252,7 @@
             // 
             // SoGio
             // 
-            this.SoGio.DataPropertyName = "LUONGTAMUNG";
+            this.SoGio.DataPropertyName = "LUONGTUNG";
             this.SoGio.HeaderText = "Số tiền";
             this.SoGio.Name = "SoGio";
             // 
@@ -259,6 +261,7 @@
             this.Lưu.HeaderText = "Lưu";
             this.Lưu.Name = "Lưu";
             this.Lưu.Text = "Lưu";
+            this.Lưu.UseColumnTextForButtonValue = true;
             this.Lưu.Visible = false;
             // 
             // Xóa
@@ -266,6 +269,7 @@
             this.Xóa.HeaderText = "Xóa";
             this.Xóa.Name = "Xóa";
             this.Xóa.Text = "Xóa";
+            this.Xóa.UseColumnTextForButtonValue = true;
             this.Xóa.Visible = false;
             // 
             // Formtamungtien
@@ -304,6 +308,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbxmanhanvien;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MANV;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNV;
@@ -311,6 +316,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoGio;
         private System.Windows.Forms.DataGridViewButtonColumn Lưu;
         private System.Windows.Forms.DataGridViewButtonColumn Xóa;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }

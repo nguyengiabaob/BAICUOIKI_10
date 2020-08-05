@@ -30,6 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(danhsachdean));
             this.dataGridViewdanhsachdean = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MADA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TIENLOINHUAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lưu = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Xóa = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbxlochitiet1 = new System.Windows.Forms.TextBox();
@@ -41,14 +49,6 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btin1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MADA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TIENLOINHUAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lưu = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Xóa = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewdanhsachdean)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +72,58 @@
             this.dataGridViewdanhsachdean.TabIndex = 1;
             this.dataGridViewdanhsachdean.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewdanhsachdean_CellContentClick);
             this.dataGridViewdanhsachdean.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewdanhsachdean_DataBindingComplete);
+            // 
+            // STT
+            // 
+            this.STT.DataPropertyName = "STT";
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            // 
+            // MADA
+            // 
+            this.MADA.DataPropertyName = "MADA";
+            this.MADA.HeaderText = "Mã dự án";
+            this.MADA.Name = "MADA";
+            // 
+            // TENDA
+            // 
+            this.TENDA.DataPropertyName = "TENDA";
+            this.TENDA.HeaderText = "Tên Dự án";
+            this.TENDA.Name = "TENDA";
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "DDIEM_DA";
+            this.Column1.HeaderText = "Địa Điểm";
+            this.Column1.Name = "Column1";
+            // 
+            // PHONG
+            // 
+            this.PHONG.DataPropertyName = "PHONG";
+            this.PHONG.HeaderText = "Phòng Ban";
+            this.PHONG.Name = "PHONG";
+            // 
+            // TIENLOINHUAN
+            // 
+            this.TIENLOINHUAN.DataPropertyName = "TIENLOINHUAN";
+            this.TIENLOINHUAN.HeaderText = "Tiền lợi nhuận";
+            this.TIENLOINHUAN.Name = "TIENLOINHUAN";
+            // 
+            // Lưu
+            // 
+            this.Lưu.HeaderText = "Lưu";
+            this.Lưu.Name = "Lưu";
+            this.Lưu.Text = "Lưu";
+            this.Lưu.UseColumnTextForButtonValue = true;
+            this.Lưu.Visible = false;
+            // 
+            // Xóa
+            // 
+            this.Xóa.HeaderText = "Xóa";
+            this.Xóa.Name = "Xóa";
+            this.Xóa.Text = "Xóa";
+            this.Xóa.UseColumnTextForButtonValue = true;
+            this.Xóa.Visible = false;
             // 
             // label1
             // 
@@ -140,6 +192,7 @@
             this.cbxchedocloc1.Name = "cbxchedocloc1";
             this.cbxchedocloc1.Size = new System.Drawing.Size(199, 24);
             this.cbxchedocloc1.TabIndex = 0;
+            this.cbxchedocloc1.SelectedIndexChanged += new System.EventHandler(this.cbxchedocloc1_SelectedIndexChanged);
             // 
             // btin
             // 
@@ -179,58 +232,6 @@
             this.simpleButton2.TabIndex = 10;
             this.simpleButton2.Text = "Sửa";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
-            // STT
-            // 
-            this.STT.DataPropertyName = "STT";
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            // 
-            // MADA
-            // 
-            this.MADA.DataPropertyName = "MADA";
-            this.MADA.HeaderText = "Mã dự án";
-            this.MADA.Name = "MADA";
-            // 
-            // TENDA
-            // 
-            this.TENDA.DataPropertyName = "TENDA";
-            this.TENDA.HeaderText = "Tên Dự án";
-            this.TENDA.Name = "TENDA";
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "DDIEM_DA";
-            this.Column1.HeaderText = "Địa Điểm";
-            this.Column1.Name = "Column1";
-            // 
-            // PHONG
-            // 
-            this.PHONG.DataPropertyName = "PHONG";
-            this.PHONG.HeaderText = "Phòng Ban";
-            this.PHONG.Name = "PHONG";
-            // 
-            // TIENLOINHUAN
-            // 
-            this.TIENLOINHUAN.DataPropertyName = "TIENLOINHUAN";
-            this.TIENLOINHUAN.HeaderText = "Tiền lợi nhuận";
-            this.TIENLOINHUAN.Name = "TIENLOINHUAN";
-            // 
-            // Lưu
-            // 
-            this.Lưu.HeaderText = "Lưu";
-            this.Lưu.Name = "Lưu";
-            this.Lưu.Text = "Lưu";
-            this.Lưu.UseColumnTextForButtonValue = true;
-            this.Lưu.Visible = false;
-            // 
-            // Xóa
-            // 
-            this.Xóa.HeaderText = "Xóa";
-            this.Xóa.Name = "Xóa";
-            this.Xóa.Text = "Xóa";
-            this.Xóa.UseColumnTextForButtonValue = true;
-            this.Xóa.Visible = false;
             // 
             // danhsachdean
             // 

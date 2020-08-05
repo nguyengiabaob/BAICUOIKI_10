@@ -38,16 +38,15 @@
             this.tbxtendangnhap = new System.Windows.Forms.TextBox();
             this.tbxmatkhau = new System.Windows.Forms.TextBox();
             this.tbxnhaplaimatkhau = new System.Windows.Forms.TextBox();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbxmanhanvien = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -110,6 +109,7 @@
             this.tbxmatkhau.Name = "tbxmatkhau";
             this.tbxmatkhau.Size = new System.Drawing.Size(291, 22);
             this.tbxmatkhau.TabIndex = 6;
+            this.tbxmatkhau.UseSystemPasswordChar = true;
             // 
             // tbxnhaplaimatkhau
             // 
@@ -117,6 +117,7 @@
             this.tbxnhaplaimatkhau.Name = "tbxnhaplaimatkhau";
             this.tbxnhaplaimatkhau.Size = new System.Drawing.Size(291, 22);
             this.tbxnhaplaimatkhau.TabIndex = 7;
+            this.tbxnhaplaimatkhau.UseSystemPasswordChar = true;
             // 
             // label5
             // 
@@ -181,10 +182,11 @@
             this.simpleButton2.Size = new System.Drawing.Size(105, 42);
             this.simpleButton2.TabIndex = 11;
             this.simpleButton2.Text = "Thoát";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
-            // dxErrorProvider1
+            // errorProvider1
             // 
-            this.dxErrorProvider1.ContainerControl = this;
+            this.errorProvider1.ContainerControl = this;
             // 
             // Formdangky
             // 
@@ -200,7 +202,7 @@
             this.Text = "Formdangky";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,13 +218,12 @@
         private System.Windows.Forms.TextBox tbxtendangnhap;
         private System.Windows.Forms.TextBox tbxmatkhau;
         private System.Windows.Forms.TextBox tbxnhaplaimatkhau;
-        private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private System.Windows.Forms.TextBox tbxmanhanvien;
         private System.Windows.Forms.Label label6;
-        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
