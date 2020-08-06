@@ -37,5 +37,10 @@ namespace Baicuoiki
                     MessageBox.Show("Tài khoản không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            this.Close()
+        }
     }
 }

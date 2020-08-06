@@ -78,6 +78,7 @@
             // dtngay
             // 
             this.dtngay.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtngay.Enabled = false;
             this.dtngay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtngay.Location = new System.Drawing.Point(2, 1);
             this.dtngay.Name = "dtngay";
@@ -379,7 +380,7 @@
             this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
             this.simpleButton2.Location = new System.Drawing.Point(956, 351);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(139, 50);
+            this.simpleButton2.Size = new System.Drawing.Size(154, 50);
             this.simpleButton2.TabIndex = 15;
             this.simpleButton2.Text = "Sửa thông tin";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);

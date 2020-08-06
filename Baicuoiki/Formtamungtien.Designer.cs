@@ -31,6 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formtamungtien));
             this.label4 = new System.Windows.Forms.Label();
             this.dgvtinhluongtamung = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoGio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lưu = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Xóa = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -43,13 +50,6 @@
             this.dtngaytamung = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoGio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lưu = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Xóa = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtinhluongtamung)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nrudowmluongtamung)).BeginInit();
@@ -86,6 +86,51 @@
             this.dgvtinhluongtamung.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvtinhluongtamung_CellContentClick);
             this.dgvtinhluongtamung.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvtinhluongtamung_DataBindingComplete);
             // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            // 
+            // MANV
+            // 
+            this.MANV.DataPropertyName = "MANV";
+            this.MANV.HeaderText = "Mã nhân viên";
+            this.MANV.Name = "MANV";
+            // 
+            // TenNV
+            // 
+            this.TenNV.DataPropertyName = "HOTENNV";
+            this.TenNV.HeaderText = "Tên nhân viên";
+            this.TenNV.Name = "TenNV";
+            // 
+            // Ngay
+            // 
+            this.Ngay.DataPropertyName = "NGAYUNG";
+            this.Ngay.HeaderText = "Ngày tạm ứng";
+            this.Ngay.Name = "Ngay";
+            // 
+            // SoGio
+            // 
+            this.SoGio.DataPropertyName = "LUONGTUNG";
+            this.SoGio.HeaderText = "Số tiền";
+            this.SoGio.Name = "SoGio";
+            // 
+            // Lưu
+            // 
+            this.Lưu.HeaderText = "Lưu";
+            this.Lưu.Name = "Lưu";
+            this.Lưu.Text = "Lưu";
+            this.Lưu.UseColumnTextForButtonValue = true;
+            this.Lưu.Visible = false;
+            // 
+            // Xóa
+            // 
+            this.Xóa.HeaderText = "Xóa";
+            this.Xóa.Name = "Xóa";
+            this.Xóa.Text = "Xóa";
+            this.Xóa.UseColumnTextForButtonValue = true;
+            this.Xóa.Visible = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.simpleButton2);
@@ -114,7 +159,7 @@
             this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
             this.simpleButton2.Location = new System.Drawing.Point(234, 244);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(137, 50);
+            this.simpleButton2.Size = new System.Drawing.Size(153, 50);
             this.simpleButton2.TabIndex = 16;
             this.simpleButton2.Text = "Sửa thông tin";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
@@ -122,7 +167,7 @@
             // simpleButton1
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(393, 244);
+            this.simpleButton1.Location = new System.Drawing.Point(406, 244);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(123, 50);
             this.simpleButton1.TabIndex = 10;
@@ -226,51 +271,6 @@
             this.label1.Size = new System.Drawing.Size(99, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ngày tạm ứng";
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            // 
-            // MANV
-            // 
-            this.MANV.DataPropertyName = "MANV";
-            this.MANV.HeaderText = "Mã nhân viên";
-            this.MANV.Name = "MANV";
-            // 
-            // TenNV
-            // 
-            this.TenNV.DataPropertyName = "HOTENNV";
-            this.TenNV.HeaderText = "Tên nhân viên";
-            this.TenNV.Name = "TenNV";
-            // 
-            // Ngay
-            // 
-            this.Ngay.DataPropertyName = "NGAYUNG";
-            this.Ngay.HeaderText = "Ngày tạm ứng";
-            this.Ngay.Name = "Ngay";
-            // 
-            // SoGio
-            // 
-            this.SoGio.DataPropertyName = "LUONGTUNG";
-            this.SoGio.HeaderText = "Số tiền";
-            this.SoGio.Name = "SoGio";
-            // 
-            // Lưu
-            // 
-            this.Lưu.HeaderText = "Lưu";
-            this.Lưu.Name = "Lưu";
-            this.Lưu.Text = "Lưu";
-            this.Lưu.UseColumnTextForButtonValue = true;
-            this.Lưu.Visible = false;
-            // 
-            // Xóa
-            // 
-            this.Xóa.HeaderText = "Xóa";
-            this.Xóa.Name = "Xóa";
-            this.Xóa.Text = "Xóa";
-            this.Xóa.UseColumnTextForButtonValue = true;
-            this.Xóa.Visible = false;
             // 
             // Formtamungtien
             // 

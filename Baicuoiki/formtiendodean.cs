@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Baicuoiki.Bang;
+using System.Data.SqlClient;
 
 namespace Baicuoiki
 {
@@ -106,7 +107,18 @@ namespace Baicuoiki
             if (e.RowIndex >= 0 && e.ColumnIndex == 7)
             {
                 btiendodean.EndCurrentEdit();
-                tiendodean.ghi();
+                try
+                { if(tiendodean.ghi())
+                    {
+                        MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                 }
+                catch(SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString(), "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            
+               
 
             }
             if (e.RowIndex >= 0 && (e.ColumnIndex == 4 || e.ColumnIndex == 5 || e.ColumnIndex == 6))

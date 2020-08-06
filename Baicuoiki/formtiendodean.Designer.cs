@@ -234,7 +234,7 @@
             this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
             this.simpleButton2.Location = new System.Drawing.Point(943, 128);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(139, 50);
+            this.simpleButton2.Size = new System.Drawing.Size(150, 50);
             this.simpleButton2.TabIndex = 12;
             this.simpleButton2.Text = "Sửa thông tin";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);

@@ -71,6 +71,7 @@
             this.simpleButton2.Size = new System.Drawing.Size(105, 42);
             this.simpleButton2.TabIndex = 13;
             this.simpleButton2.Text = "Thoát";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // simpleButton1
             // 
